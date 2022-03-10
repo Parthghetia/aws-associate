@@ -48,6 +48,7 @@ aws s3 rb s3://test-parth-123 --force
 ```
 
 
+![image](https://user-images.githubusercontent.com/43883264/157587479-67f980a1-6b25-46f2-9c41-0e09ecd5633c.png)
 
 
 
