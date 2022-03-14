@@ -47,6 +47,28 @@ aws s3 cp test s3://test-parth-123
 aws s3 rb s3://test-parth-123 --force
 ```
 
+### Provisioning an EC2 instance
+
+An AMI is really just a template that has information telling EC2 what OS and application software to include on the root data volume
+
+Four kinds of AMIs:
+1. Amazon quick start AMIs - self
+2. Marketplace AMIs - prod ready images
+3. Community AMIs - indendepently created stuff
+4. Private AMIs - own stuff
+
+AMIs is only available in one region. if you invoke the ID of an AMI from a different region it will fail
+
+There are many instance types to suit your needs. Feel free to browse them here:
+aws.amazon.com/ec2/instance-types
+
+### Configuring an environment for your instance
+
+Three things to get right when configuring your instance:
+Geographical region, VPC config and tenancy model
+
+- A good idea to separate/create a new VPC for each of your project or project strages like different VPCs for early app dev another for beta testing etc
+- Tenancy - can be shared or dedicated - shared means you could share the server with other customers and opposite for dedicated. Costs will be obvio ....
 
 
 
