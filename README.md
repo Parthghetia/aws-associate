@@ -72,6 +72,18 @@ Geographical region, VPC config and tenancy model
 
 
 
+####NOTE:
+You can always change an instance type as followe:
+1. Stop the instance. (Remember, your public IP address might be different when you start up again.)
+2. From the Actions drop-down, click Instance Settings and then Change Instance Type. Select a new type.
+3. Restart the instance and confirm that it’s running properly.
 
 
+### Configuring instance behaviour
+You can tell EC2 to run some commands while its booting up (bootstrapping). You can specify this is in the console or using the --user-data value with the AWS cli. This is the best time to feed any scripts that you may want to.
 
+### EC2 placement groups
+This gives you the power to define non-standard profiles to place your instances to meet your needs. Three kinds:
+1. Cluster groups - launch easy instance into one zone (close proximity)
+2. Spread groups - separate instances physically across different H/w racks and even availability zones to reduce risk of failure. Similar to VMWare's Distributed Resource Scheduler
+3. Paritition groups - lets you associate some instances with each other. Placing them in a single partition. But the instances within that single partition can be kept physically separated from instances within other partitions. This differs from spread groups where no two instances ever share physical hardware
