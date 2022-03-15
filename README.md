@@ -87,3 +87,35 @@ This gives you the power to define non-standard profiles to place your instances
 1. Cluster groups - launch easy instance into one zone (close proximity)
 2. Spread groups - separate instances physically across different H/w racks and even availability zones to reduce risk of failure. Similar to VMWare's Distributed Resource Scheduler
 3. Paritition groups - lets you associate some instances with each other. Placing them in a single partition. But the instances within that single partition can be kept physically separated from instances within other partitions. This differs from spread groups where no two instances ever share physical hardware
+
+## Terminating an instance - Things to note
+This destroys the data inside but only if you are using an Elastic Block Store (EBS) and the volume is set to persist that you can keep the data (used in k8s)
+- You should also be aware that a stopped instance that had been using a non-persistent public IP will now be assigned a new IP address when restarted
+- If you need a predicatable IP address, allocate an elastic IP address and associate it to your instance
+- You can edit an instances security policies even while its running without any issue
+- You can also increase compute, storage, memory even while the instance is running
+
+## Resource Tags
+Used to identify stuff. Has a key and a value e.g: Production server - server1
+
+## Service limits on AWS
+Limits could apply like 5 VPCs per region or 5000 SSH key pairs across your account. This could be raised by AWS
+
+# EC2 Storage Volumes
+## 1. Elastic Block Store Volumes
+- You can attach as many EBS volumes to your instance as you would like (only one at a time can attach tho)
+Four EBS volume types:
+- EBS-Provisioned IOPS(Input Output Per Second) SSD - for intense use 64000 IOPS/Volume and a maximum throughput of 1000 mb/s
+- EBS-General Purpose SSD - 16000 IOPS/Volume - Costs can be checked
+- Throughput Optimized HDD - for log processing and big data operations that need high throughput - 500 IOPS/volume
+- Cold HDD - larger volumes of data that require infrequent access
+
+# Instance Store Volumes
+These are ephemeral - Why use instance store volumes:
+a. These are SSDs attached to the server hosting your instance and connected via a fast NVMe (Non-Volatile Memory Express) interface
+b. Use of instance volumes is included in the instance pricing
+c. Work well for deployment models where instances are launched to fill short-term roles (for lets say importing some stuff)
+
+Whether one or more volumes will be available for your instance will depend on the instance type you choose
+
+## Accessing your EC2 instance
