@@ -112,10 +112,89 @@ Four EBS volume types:
 
 # Instance Store Volumes
 These are ephemeral - Why use instance store volumes:
-a. These are SSDs attached to the server hosting your instance and connected via a fast NVMe (Non-Volatile Memory Express) interface
-b. Use of instance volumes is included in the instance pricing
-c. Work well for deployment models where instances are launched to fill short-term roles (for lets say importing some stuff)
+- These are SSDs attached to the server hosting your instance and connected via a fast NVMe (Non-Volatile Memory Express) interface
+- Use of instance volumes is included in the instance pricing
+- Work well for deployment models where instances are launched to fill short-term roles (for lets say importing some stuff)
 
 Whether one or more volumes will be available for your instance will depend on the instance type you choose
 
 ## Accessing your EC2 instance
+- Out of the box your instance can only connect within the subnet to other resources 
+- If your instance needs multiple network interfaces (to connect to other resources) you can create and attach one or more virtual elastic network interfaces to your instance. Each of these interfaces must be connected to a subnet and security group.
+- You can also assign a static IP within the subnet range
+- Default public IP assigned to your instance is always ephemeral and can be staticized by elastic IPs (no charge)
+- Running the following curl command will return the types of data available about the EC2 instance from within the instance
+
+```
+[ec2-user@ip-172-31-86-152 ~]$ curl http://169.254.169.254/latest/meta-data/
+ami-id
+ami-launch-index
+ami-manifest-path
+block-device-mapping/
+events/
+hibernation/
+hostname
+identity-credentials/
+instance-action
+instance-id
+instance-life-cycle
+instance-type
+local-hostname
+local-ipv4
+mac
+metrics/
+network/
+placement/
+profile
+public-hostname
+public-ipv4
+public-keys/
+reservation-id
+security-groups
+services/
+```
+Entries containing a trailing slash contain further info. You can use that to display info like below:
+```
+curl http://169.254.169.254/latest/meta-data/security-groups
+launch-wizard-4
+```
+## Securing your EC2 instance
+This is what AWS provides to secure your instance:
+- Security groups
+- Identity and Access management
+- NAT
+- Key pairs
+
+### Security Groups
+- This is like a firewall. By default this denies all kind of traffic. 
+- You define group behaviour by setting policy rules that will either block or allow traffic
+- Traffic is assessed based on the source and the destination as well as the port and protocol its going to use
+- AWS also provides Network Access Control Lists - that are associated with entire subnets rather than just instances
+
+### IAM Roles
+- When a role is assigned to a user or a resource, they'll gain access to a resource that match the role policies
+- Using roles you can give limited amount of entities exclusive access to resources like EC2 instances
+- You can also assign an IAM role to an instance so that it can access external tools like a Relational Database Instance
+
+### NAT Devices
+- Sometimes you need to configure an instance without a public IP address so you dont expose it to the public
+- AWS gives you two ways to achieve this:
+1. NAT instance
+2. NAT gateway - managed service - so you dont have to manually launch and maintain an instance - both incur charges
+
+### Key Pairs
+Self explanatory
+
+## EC2 Auto Scaling
+EC2 auto scaling uses either *Launch Configuration* or *Launch Template* to automatically configure the instances that it launches
+### Launch Configuration
+This is a template/named doc that contains information to not basically go through the whole process of creating an instance
+- You can create a launch configuration from an existing EC2 instance. Auto scaling will copy the settings but you can edit as you wish
+- Launch Configs are only used for EC2 Auto Scaling - meaning you cant manually launch an instance using the launch config
+- Once you create your launch config you cannot modify, need to create a new one
+
+### Launch Templates
+- You can use a launch template to auto scale but also to spin up EC2 instances or even creating a spot fleet
+- They are also versioned, allowing you to change them after creation
+
+## Auto Scaling Groups
