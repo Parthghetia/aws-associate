@@ -198,3 +198,4 @@ This is a template/named doc that contains information to not basically go throu
 - They are also versioned, allowing you to change them after creation
 
 ## Auto Scaling Groups
+ADD LABS WHEN YOU START
