@@ -196,6 +196,9 @@ This is a template/named doc that contains information to not basically go throu
 ### Launch Templates
 - You can use a launch template to auto scale but also to spin up EC2 instances or even creating a spot fleet
 - They are also versioned, allowing you to change them after creation
+# LAB
+## Creating a launch template
+![image](https://user-images.githubusercontent.com/43883264/160720067-efb3cc87-cbb6-4c44-839c-7c334fed54ee.png)
 
 ## Auto Scaling Groups
-ADD LABS WHEN YOU START
+
