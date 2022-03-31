@@ -202,3 +202,54 @@ This is a template/named doc that contains information to not basically go throu
 
 ## Auto Scaling Groups
 
+- When creating an Auto Scaling group - you need to specify the following:
+1. Launch config/template
+2. How many running instances you want auto-scaling to maintain at all times
+3. Min and max size of auto scaling group
+
+##### NOTE: If Min number of instances is set to 0 - auto scaling will not spawn any instances and will terminate any running instances as well
+
+## Specifying an Application load balancer target group
+- If you want to load balance traffic to instances in your group - just plug in the name of the ALB when creating the auto scaling group. New instances will automatically be added to the ALB group
+
+## Health checks against application instances
+- By default EC2 health checks on an instance are used to determine the health of the instance - you can also integrate CloudWatch, CloudTrail health checks
+- If you are using an ALB group you can also configure health checks to the application target group
+
+## Auto Scaling Options
+### Manual Scaling
+As the name suggests
+## Dynamic scaling policies
+Auto scaling generates these metrics to ensure that EC2 instances always meet your demand:
+1. Aggregrate CPU util
+2. Average request count per target
+3. Avg network bytes in and out (2 diff metrics)
+
+You can always integrate new metrics from CloudWatch logs and use those. As an example, your application may generate logs that indicate how long it takes to complete a process. If the process takes too long, you could have Auto Scaling spin up new instances.
+
+Dynamic scaling policies work by monitoring a cloud watch alarm and scaling out by increasing desired capacity. There are three dynamic policies to choose from:
+
+### 1. Simple Scaling Policies
+Whenever, metrics rises, auto scaling increases capacity. That's it. How much capacity is increased depends on the three factors (as chosen by user) below:
+- ChangeInCapacity - increase by specified amount
+- ExactCapacity - to an exact number as specified - e.g to 6 when load increases
+- PercentChangeInCapacity - increase capacity by a percent of the current amount. 4 to 6 by 50 % (set by user)
+
+After auto scaling completes the adjustment - it waits a cooldown period before executing the policy again, even if the alarm is still breaching (300 sec by default)
+
+### 2. Step Scaling Policies
+If the demand on your app is rapidly increasing a simple scaling policy may not do the job. With step you can add instances, based on how much the aggregrate metric has increased above the threshold.
+
+E.g:
+![image](https://user-images.githubusercontent.com/43883264/161151772-ab87fce3-df49-490b-88b1-bc16772cca58.png)
+
+There is also a warm up time - basically time to be taken before taking into consideration the metrics of the newly added instances
+### 3. Target Tracking Policies
+If step scaling policies are too into the application, you could create target tracking policies. Basically, select a metric and a value and auto scaling will create a cloudWatch alarm and a scaling policy to adjust the number of instances to keep the metric near that target
+
+Also target tracking will scale in by deleting instances based on the target metric value. Warm up time can be specified too
+
+
+
+## Scheduled Actions
+
