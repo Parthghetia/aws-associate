@@ -252,4 +252,66 @@ Also target tracking will scale in by deleting instances based on the target met
 
 
 ## Scheduled Actions
+This is for proactive times before demand hits like - weekends.
+When you create a scheduled action you must specify the following:
+- A min, max and desired capacity value
+- A start date and time
+
+![image](https://user-images.githubusercontent.com/43883264/161168644-3e2f7f31-de26-4cb7-9ee9-9b91a2b69927.png)
+![image](https://user-images.githubusercontent.com/43883264/161168671-2ac33aa6-dc7b-4311-bc1f-604674591444.png)
+
+
+## AWS Systems Manager
+This can handle many of the maintenance tasks. Like: upgrading and installing software, installing a new application, disabling public read from all your s3 buckets, attaching IAM instance profiles.
+
+System Manager provides the following two capabilities:
+- Actions
+- Insights
+
+## Actions
+Let's you automatically or manually perform against AWS resources. These actions must be defined in *documents* divided into three:
+- Automation - actions you can run against AWS resources
+- Command - actions you can run against Linux or Windows resources
+- Policy - defined processes for collecting inventory data from managed instances
+
+### Automation
+Stuff you can do include: restart multiple EC2 instances, update cloudFormation stacks, patch AMIs
+You can either automate at once or step by step as well
+
+## Run Command
+- Systems Manager accomplishes this via an agent installed on your EC2 and on-premises managed instances
+- The Systems Manager agent is installed by default on more recent Windows Server, Amazon Linux, and Ubuntu Server AMIs. You can manually install the agent on other AMIs and on-premises servers
+
+- By default, Systems Manager doesn’t have permissions to do anything on your instances. You first need to apply an instance profile role that contains the permissions in the AmazonEC2RoleforSSM policy
+- You can target instances by tag or select them individually. As with automation, you may use rate limiting to control how many instances you target at once.
+
+
+### Session Manager
+![image](https://user-images.githubusercontent.com/43883264/161170247-4635ed48-eb50-4466-851c-cbdbb2de5d34.png)
+
+### Patch Manager
+- Patch Manager helps you automate the patching of your Linux and Windows instances
+- You can individually choose instances to patch, patch according to tags, or create a patch group. A patch group is a collection of instances with the tag key Patch Group. 
+- For example, if you wanted to include some instances in the Webservers patch group, you’d assign tags to each instance with the tag key of Patch Group and the tag value of Webservers.
+- Patch managers use patch baselines to decide whether the patches will be installed manually or require approval
+- For Windows baselines, you can specify knowledgebase and security bulletin IDs
+- For Linux baselines, you can specify Common Vulnerabilities and Exposures (CVE) IDs or full package names
+
+### State manager
+- State Manager is a configuration management tool that ensures your instances have the software you want them to have and are configured in the way you define
+- Can also automatically run commands and policy documents against your instances
+- To use state manager, you must create an *association* that defines the command document to run and any other params, the target instance and the schedule.
+- Once you create an association, state manager will immediately run it once and then according to schedule
+- AWS default association called AWS-GatherSoftwareInventory - allows collection of some info from instances - network config, file info. etc
+
+### Insights
+- They aggregrate health, compliance and operational details about AWS resources.
+
+### Built-in insights
+1. AWS Config Compliance - compliant/non-compliant with AWS Config rules. Shows brief history of config changes tracked by AWS
+2. CloudTrail Events - displays each resource in the group, resource type, and last event CloudTrail recorded against the resource
+3. Personal Health Dashboard - 
+4. Trusted Advisor Recommendations - The AWS Trusted Advisor tool can check your AWS environment for optimizations and recommendations related to cost optimization, performance, security, and fault tolerance. It will also show you when you’ve exceeded 80 percent of your limit for a service
+
+![image](https://user-images.githubusercontent.com/43883264/161171666-63a12ab6-2658-4664-a242-4ddcd02c56d1.png)
 
