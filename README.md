@@ -315,3 +315,22 @@ You can either automate at once or step by step as well
 
 ![image](https://user-images.githubusercontent.com/43883264/161171666-63a12ab6-2658-4664-a242-4ddcd02c56d1.png)
 
+# BREAKING FROM THE BOOK TO A MORE HANDS ON COURSE _ MATERIAL STAYS
+
+## IAM
+- So easy stuff for creating users and groups as needed. Main thing here is policies. Basically creating custom access for users and groups. Let's say providing User Alice who is a DevOps only describe permission on EC2 instances. More to follow
+- IAM is a global service and for many other services you'll have a regional approach
+- Root account not advised to use - gotta create users with admin account in stead
+
+## LAB
+So its easy. Basically create an IAM user add it to a group, give him/her Admin privileges. Make sure to set an account alias (something readable apart from numbers) 
+![image](https://user-images.githubusercontent.com/43883264/161408024-96e39750-156d-4d66-a94e-242383276d46.png)
+![image](https://user-images.githubusercontent.com/43883264/161408034-96904656-1f08-4c9e-a49a-5c9746835d7c.png)
+![image](https://user-images.githubusercontent.com/43883264/161408043-c81545e6-4f81-48b7-b7b5-eab224f465e1.png)
+Alias changed in the right below:
+![image](https://user-images.githubusercontent.com/43883264/161408055-e69a303a-44d3-4107-94a2-16ab168cf2dc.png)
+
+
+
+
+
