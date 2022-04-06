@@ -338,6 +338,23 @@ Alias changed in the right below:
 ![image](https://user-images.githubusercontent.com/43883264/161408917-cd6a01ab-eac9-4e03-b6cb-a80f60604dd0.png)
 
 
+### IAM Policy Hands on
+ - The only fun thing here in this lab is that you can go to policies within IAM and get the JSON for the inbuilt policies and basically use this to create your own custom policies like so:
+ ![image](https://user-images.githubusercontent.com/43883264/161889394-c95e6409-b8c0-41e9-a5ec-30a3b67d0c57.png)
+- You can also use the visual editor as below to create your own policies:
+![image](https://user-images.githubusercontent.com/43883264/161889786-e1578591-48f1-40ff-92d1-e937109a528f.png)
+
+### IAM - Password policy
+
+- Basically set a minimum password policy or require specific characters. 
+- Also allow IAM users to change their password
+- Prevent password re-use
+- Require users to change their password after some time
+
+#### MFA
+
+
+
 
 
 
