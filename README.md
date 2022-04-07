@@ -418,10 +418,30 @@ Alias changed in the right below:
 - And just follow
 
 
-## NOTE: Do not use your root account to create access-keys
+**NOTE: Do not use your root account to create access-keys
 
 
 
+## IAM Roles for Services
+
+- Some AWS services will need to perform actions on your behalf and for this you need to create permissions to AWS services like to EC2 with IAM roles
+### Creating an IAM role hands on
+1. First you need to create a role from the IAM menu like below:
+![image](https://user-images.githubusercontent.com/43883264/162265342-7ad63688-40d7-498d-b694-d3787bd5a06e.png)
+
+2. Then choose the policies/permissions to apply to this role like read-only access
+![image](https://user-images.githubusercontent.com/43883264/162265513-9bd2518f-31b3-4a88-a5ba-0fa0f6810a8f.png)
+You can go as custom as possible with the permissions
+THAT'S IT!
 
 
+## IAM Built-In Security Tools
+![image](https://user-images.githubusercontent.com/43883264/162265884-1c668685-e046-459f-9cac-079cabd76519.png)
+
+You can easily generate this from the IAM menu - pretty straightforward
+
+To access the access-advisor. You gotta go to users and Access advisor like below:
+![image](https://user-images.githubusercontent.com/43883264/162266736-c6965c58-82b3-44de-8937-88de3367933f.png)
+- Here you can even check the policies that are used to access the policies and you could actually get rid of non-used services
+- 
 
