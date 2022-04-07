@@ -1,3 +1,15 @@
+
+- [AWS-ASSOCIATE](#aws-associate)
+  - [Known terms to be used](#known-terms-to-be-used)
+    - [Networking terms to be used](#networking-terms-to-be-used)
+    - [Storage terms to be used](#storage-terms-to-be-used)
+    - [DB terms to be used](#db-terms-to-be-used)
+    - [Application Management terms to be used](#application-management-terms-to-be-used)
+    - [Security and identity terms to be used](#security-and-identity-terms-to-be-used)
+    - [Application integration terms to be used](#application-integration-terms-to-be-used)
+    - [Basic commands to create an S3 bucket using AWS CLI](#basic-commands-to-create-an-s3-bucket-using-aws-cli)
+    - [Provisioning an EC2 instance](#provisioning-an-ec2-instance)
+    - [Configuring an environment for your instance](#configuring-an-environment-for-your-instance)
 # AWS-ASSOCIATE
 ## Known terms to be used
 - EC2 - A compute instance
