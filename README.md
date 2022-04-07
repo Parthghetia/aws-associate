@@ -351,7 +351,15 @@ Alias changed in the right below:
 - Prevent password re-use
 - Require users to change their password after some time
 
-#### MFA
+-> Can be changed from account settings on AWS console
+
+#### MFA setup for root account
+- Pretty easy. Click here:
+![image](https://user-images.githubusercontent.com/43883264/161890518-1da867d3-2d4c-4c8c-8622-34646350c66f.png)
+- And just follow
+
+
+## NOTE: Do not use your root account to create access-keys
 
 
 
