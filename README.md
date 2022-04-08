@@ -129,8 +129,6 @@ Geographical region, VPC config and tenancy model
 - A good idea to separate/create a new VPC for each of your project or project strages like different VPCs for early app dev another for beta testing etc
 - Tenancy - can be shared or dedicated - shared means you could share the server with other customers and opposite for dedicated. Costs will be obvio ....
 
-
-
 ####NOTE:
 You can always change an instance type as followe:
 1. Stop the instance. (Remember, your public IP address might be different when you start up again.)
@@ -139,7 +137,17 @@ You can always change an instance type as followe:
 
 
 ### Configuring instance behaviour
-You can tell EC2 to run some commands while its booting up (bootstrapping). You can specify this is in the console or using the --user-data value with the AWS cli. This is the best time to feed any scripts that you may want to.
+You can tell EC2 to run some commands while its booting up (bootstrapping). You can specify this is in the console or using the --user-data value with the AWS cli. This is the best time to feed any scripts that you may want to. The user-data script also runs as a root user. Here is some example of user data to run a static website just from the script code
+```bash
+#!/bin/bash
+# Use this for your user data (script from top to bottom)
+# install httpd (Linux 2 version)
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+echo "<h1>Hello World from $(hostname -f)</h1>" > /var/www/html/index.html
+```
 
 ### EC2 placement groups
 This gives you the power to define non-standard profiles to place your instances to meet your needs. Three kinds:
@@ -451,4 +459,16 @@ To activate the billing dashboard for a particular IAM user you need to enable I
 
 You can now see the billing dashboard with your IAM user here
 ![image](https://user-images.githubusercontent.com/43883264/162329424-355934c8-22d7-423f-90b9-1e47598e6229.png)
+
+## Creating a budget and an alert for budget limits
+Get to the budget tab as below:
+![image](https://user-images.githubusercontent.com/43883264/162353891-a78f12eb-f365-4589-9d64-c8bc98c9b2e9.png)
+
+Then just create a budget and follow the options. This is what was followed by me
+![image](https://user-images.githubusercontent.com/43883264/162354031-1523cafc-4b51-450e-87d0-a1b627724c1a.png)
+![image](https://user-images.githubusercontent.com/43883264/162354079-dbc2143e-755b-41cb-b9b0-7c655b430c6d.png)
+- You could add an action as shown below, but don't forget you'd need a role so that the service can act accordingly. Like shutting down EC2 instances
+![image](https://user-images.githubusercontent.com/43883264/162354170-10fb148d-0a60-4d59-b632-383c6a7fdfc7.png)
+
+
 
