@@ -443,5 +443,12 @@ You can easily generate this from the IAM menu - pretty straightforward
 To access the access-advisor. You gotta go to users and Access advisor like below:
 ![image](https://user-images.githubusercontent.com/43883264/162266736-c6965c58-82b3-44de-8937-88de3367933f.png)
 - Here you can even check the policies that are used to access the policies and you could actually get rid of non-used services
-- 
+
+
+## Billing in AWS
+To activate the billing dashboard for a particular IAM user you need to enable IAM user and role access to billing information as below:
+![image](https://user-images.githubusercontent.com/43883264/162329249-2bc1e839-9c19-4c5f-98d8-f2aa2dad0243.png)
+
+You can now see the billing dashboard with your IAM user here
+![image](https://user-images.githubusercontent.com/43883264/162329424-355934c8-22d7-423f-90b9-1e47598e6229.png)
 
