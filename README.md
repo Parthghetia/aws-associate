@@ -121,6 +121,31 @@ AMIs is only available in one region. if you invoke the ID of an AMI from a diff
 There are many instance types to suit your needs. Feel free to browse them here:
 aws.amazon.com/ec2/instance-types
 
+Instances are divided into 7 different types and they cover different use cases as below:
+**1. General Purpose
+- For diversity of workloads like web-servers or code repos. Good balance between compute, memory and networking
+
+
+**2. Compute Optimized
+- For compute intensive tasks like: Batch processing workloads, media transcoding, high perf web-servers, high perf computing (HPC), scientific modelling and learning, dedicated gaming servers.
+
+**3. Memory Optimized
+- For performance for workloads that process large data sets of memory
+- For high perf relational/non-relational DB
+- Distributed web scale cache data stores
+- In memory databases optimized for Business Intelligence
+- Apps performing real time processing of big unstructured data
+
+**4. Storage Optimized
+- For apps that require high, sequential, read and write access to large data sets on local storage
+- For high frequency online transaction processing (OTLP) systems
+- Relational and NoSql Dbs
+- Data warehousing applications
+- Distributed file systems
+
+**NOTE: This is a really good website to have a nice little instance comparison for pricing hourly. Definitely worth taking a look before deciding to buy any sort of instances: aws.amazon.com/ec2/instance-types
+
+
 ### Configuring an environment for your instance
 
 Three things to get right when configuring your instance:
@@ -237,6 +262,12 @@ This is what AWS provides to secure your instance:
 - You define group behaviour by setting policy rules that will either block or allow traffic
 - Traffic is assessed based on the source and the destination as well as the port and protocol its going to use
 - AWS also provides Network Access Control Lists - that are associated with entire subnets rather than just instances
+- These can be attached to many instances, So you could have one security group for a number of instances but only in on region/vpc combination
+- Its good practice to maintain one security group just for SSH access
+- By default all inbound traffic is blocked and all outbound traffic is allowed
+- We could also reference other security groups - basically allowing other security groups attached to other instances to allow traffic like seen in the diagram below:
+- ![image](https://user-images.githubusercontent.com/43883264/162587123-44fca472-912b-4460-bbe7-ff2ecf8aa94a.png)
+
 
 ### IAM Roles
 - When a role is assigned to a user or a resource, they'll gain access to a resource that match the role policies
