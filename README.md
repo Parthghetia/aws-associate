@@ -129,6 +129,18 @@ aws.amazon.com/ec2/instance-types
 ![image](https://user-images.githubusercontent.com/43883264/162596852-6fb8b106-93e6-4a39-837d-465e59dfdd40.png)
 ### EC2 Savings Plan
 ![image](https://user-images.githubusercontent.com/43883264/162596867-56a593c9-9ae2-4d0c-9927-98836ba2e3ad.png)
+### EC2 Spot Instances
+![image](https://user-images.githubusercontent.com/43883264/162596886-0de7ccf4-9616-4ea3-9e9d-8ee6ba80a07e.png)
+### EC2 Dedicated Hosts
+![image](https://user-images.githubusercontent.com/43883264/162596900-c5edc180-8475-4195-9572-9885001092f1.png)
+### EC2 Dedicated Instances
+![image](https://user-images.githubusercontent.com/43883264/162596911-827efc31-c0c3-444d-b9d1-0c65b53046b0.png)
+### EC2 Capacity Reservations
+![image](https://user-images.githubusercontent.com/43883264/162596953-4869c278-03e4-4b3f-b2bc-65d2f205a146.png)
+### An instance purchasing guide
+![image](https://user-images.githubusercontent.com/43883264/162596958-3e71d9c0-2124-4762-bb13-fd3ae5fd7e9f.png)
+### Price comparison charts
+![image](https://user-images.githubusercontent.com/43883264/162596967-16dc5bc6-87bc-41af-b93a-bed1248e57d7.png)
 
 ## EC2 Instance Types
 Instances are divided into 7 different types and they cover different use cases as below:
