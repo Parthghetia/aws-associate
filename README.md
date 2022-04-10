@@ -121,6 +121,16 @@ AMIs is only available in one region. if you invoke the ID of an AMI from a diff
 There are many instance types to suit your needs. Feel free to browse them here:
 aws.amazon.com/ec2/instance-types
 
+## EC2 Instance Purchasing Options
+![image](https://user-images.githubusercontent.com/43883264/162596636-bedc7d6a-73bd-46d3-bd06-7622335f78bf.png)
+### EC2 On Demand
+![image](https://user-images.githubusercontent.com/43883264/162596835-7511f179-a9e4-4833-9d98-b77c3c6c1420.png)
+### EC2 Reserved Instances - Numbers could change with time
+![image](https://user-images.githubusercontent.com/43883264/162596852-6fb8b106-93e6-4a39-837d-465e59dfdd40.png)
+### EC2 Savings Plan
+![image](https://user-images.githubusercontent.com/43883264/162596867-56a593c9-9ae2-4d0c-9927-98836ba2e3ad.png)
+
+## EC2 Instance Types
 Instances are divided into 7 different types and they cover different use cases as below:
 **1. General Purpose
 - For diversity of workloads like web-servers or code repos. Good balance between compute, memory and networking
@@ -143,7 +153,7 @@ Instances are divided into 7 different types and they cover different use cases 
 - Data warehousing applications
 - Distributed file systems
 
-**NOTE: This is a really good website to have a nice little instance comparison for pricing hourly. Definitely worth taking a look before deciding to buy any sort of instances: aws.amazon.com/ec2/instance-types
+**NOTE: This is a really good website to have a nice little instance comparison for pricing hourly. Definitely worth taking a look before deciding to buy any sort of instances: https://instances.vantage.sh/ 
 
 
 ### Configuring an environment for your instance
@@ -412,8 +422,6 @@ You can either automate at once or step by step as well
 4. Trusted Advisor Recommendations - The AWS Trusted Advisor tool can check your AWS environment for optimizations and recommendations related to cost optimization, performance, security, and fault tolerance. It will also show you when you’ve exceeded 80 percent of your limit for a service
 
 ![image](https://user-images.githubusercontent.com/43883264/161171666-63a12ab6-2658-4664-a242-4ddcd02c56d1.png)
-
-# BREAKING FROM THE BOOK TO A MORE HANDS ON COURSE _ MATERIAL STAYS
 
 ## IAM
 - So easy stuff for creating users and groups as needed. Main thing here is policies. Basically creating custom access for users and groups. Let's say providing User Alice who is a DevOps only describe permission on EC2 instances. More to follow
