@@ -267,7 +267,7 @@ This is what AWS provides to secure your instance:
 - By default all inbound traffic is blocked and all outbound traffic is allowed
 - We could also reference other security groups - basically allowing other security groups attached to other instances to allow traffic like seen in the diagram below:
 - ![image](https://user-images.githubusercontent.com/43883264/162587123-44fca472-912b-4460-bbe7-ff2ecf8aa94a.png)
-
+- In order to enable the above, you just need to choose the security group as either source or destination, depending on your requirement.
 
 ### IAM Roles
 - When a role is assigned to a user or a resource, they'll gain access to a resource that match the role policies
@@ -472,6 +472,32 @@ Alias changed in the right below:
 ![image](https://user-images.githubusercontent.com/43883264/162265513-9bd2518f-31b3-4a88-a5ba-0fa0f6810a8f.png)
 You can go as custom as possible with the permissions
 THAT'S IT!
+
+### Usage of an IAM roles in action
+- Taking a perfect example - you spin up an EC2 instance - You then want to be able to see some information related to let's say IAM services on your AWS account.
+- Although an AMI based Linux instance has the awscli configured into, it is a VERY BAD IDEA to login to this instance using your access key. As anyone who connects to this instance could easily retrieve this and hack the hell out of you
+- Hence the way out of this is IAM roles - you basically attach an IAM role to the EC2 instance, to allow it to access a particular service. The above created role allows read-only access to IAM
+- If attached to an EC2 instance you have, you will be able to view IAM info like below
+
+![image](https://user-images.githubusercontent.com/43883264/162596403-d19bc490-bfd5-492d-a546-48aa351fd267.png)
+![image](https://user-images.githubusercontent.com/43883264/162596409-032671e1-c3a1-4e1c-bf71-41fe0d46675d.png)
+
+That's it. Now when you log back into your EC2 instance you can now view IAM related info like so:
+```bash
+[ec2-user@ip-172-31-93-36 ~]$ aws iam list-users
+{
+    "Users": [
+        {
+            "UserName": "parth",
+            "Path": "/",
+            "CreateDate": "2022-04-03T02:06:33Z",
+            "UserId": "AIDAXOFC6AASKX3GZORUQ", 
+            "Arn": "arn:aws:iam::511442812964:user/parth"
+        }
+    ]
+}
+```
+
 
 
 ## IAM Built-In Security Tools
