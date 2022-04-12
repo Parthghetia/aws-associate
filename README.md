@@ -142,6 +142,18 @@ aws.amazon.com/ec2/instance-types
 ### Price comparison charts
 ![image](https://user-images.githubusercontent.com/43883264/162596967-16dc5bc6-87bc-41af-b93a-bed1248e57d7.png)
 
+## EC2 Spot Instances - Deep Dive
+- You need to define your Max Spot price, and as long as the current spot price of the instance is less than your max spot price. It keeps running. When current spot price goes higher than the max spot price, you can choose to gracefully shut down your instance over 2 mins. Once the spot price goes lower than the max price, you can run your instance
+#### How to terminate spot instances
+Ignore the diagram on the right - Couldn't snip it off
+![image](https://user-images.githubusercontent.com/43883264/162652954-2ee1800c-e5ef-4f99-9208-0bc5f0043c96.png)
+
+#### Spot Fleets
+- Spot Fleets (Can save you alot of money)
+- Are = set of spot instances + (optional) on Demand instances
+- ![image](https://user-images.githubusercontent.com/43883264/162653536-97d68303-ab29-455b-9693-eeb6399050ad.png)
+- The biggest benefit here, is that Spot Fleet tries to pick instances from a pool that has the least cost and thus the benefit of using it (lowestPrice)
+
 ## EC2 Instance Types
 Instances are divided into 7 different types and they cover different use cases as below:
 **1. General Purpose
@@ -208,6 +220,25 @@ This destroys the data inside but only if you are using an Elastic Block Store (
 - If you need a predicatable IP address, allocate an elastic IP address and associate it to your instance
 - You can edit an instances security policies even while its running without any issue
 - You can also increase compute, storage, memory even while the instance is running
+
+### EC2 Instances hands-on - EC2 instances launch types
+#### Spot Requests
+You can always see pricing history for instances - under the spot requests tab. Here you can view pricing history for different kinds of instances like below:
+![image](https://user-images.githubusercontent.com/43883264/162853642-a1ed0792-e8c0-455a-b24f-fd12dd0d20e0.png)
+![image](https://user-images.githubusercontent.com/43883264/162853663-4be57eb7-2c2a-442c-84c3-acbe9002a296.png)
+![image](https://user-images.githubusercontent.com/43883264/162854295-7d403361-447a-4f5c-84d3-4c6d7841a4b2.png)
+- Remember spot fleets can be tricky to setup initially but save you alot of money compared to on-demand instances
+- In the second snip, you can also specify based on your compute requirements as well.
+
+### How to create spot instances - Hands on
+#### Spot fleets
+It's all under spot requests
+![image](https://user-images.githubusercontent.com/43883264/162854228-f0795c7b-9410-4063-a2aa-e5a6159d37a8.png)
+![image](https://user-images.githubusercontent.com/43883264/162854284-87f73b10-ed8f-4457-9307-c2b518f91aae.png)
+
+#### How to create only one spot instance
+Just like creating an EC2 instance but in there you gotta enable this:
+![image](https://user-images.githubusercontent.com/43883264/162855280-58ce9fa4-23d9-40dd-b98c-2c0b9746b7b2.png)
 
 ## Resource Tags
 Used to identify stuff. Has a key and a value e.g: Production server - server1
