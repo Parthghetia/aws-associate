@@ -59,7 +59,6 @@
   - [NOTE: Do not use your root account to create access-keys](#note-do-not-use-your-root-account-to-create-access-keys)
 # AWS-ASSOCIATE
 ## Known terms to be used
-- EC2 - A compute instance
 - Lambda - Used to provide serverless application architecture. That means that network events like consumer requests can trigger the execution of a pre-defined code-based operation
 - Elastic Beanstalk - managed service by AWS. All you need to do is to push your application code and AWS does the rest for you
 
@@ -96,15 +95,6 @@
 - Simple Workflow - lets you coordinate a series of tasks that must be performed using AWS services or even non-digital events
 - Simple Queue Service - event-driven messaging within distributed systems that can decouple while coordinating the discrete step of the larger process. The data contained in your SQS messages will be reliably delivered, adding to the fault tolerant qualities of an application
 - API Gateway - to create and manage secure and reliable APIs for your AWS based applications
-
-### Basic commands to create an S3 bucket using AWS CLI
-
-```
-aws s3 ls
-aws s3 mb s3://mybucket --region us-west-1
-aws s3 cp test s3://test-parth-123
-aws s3 rb s3://test-parth-123 --force
-```
 
 ### Provisioning an EC2 instance
 
@@ -159,7 +149,6 @@ Instances are divided into 7 different types and they cover different use cases 
 **1. General Purpose
 - For diversity of workloads like web-servers or code repos. Good balance between compute, memory and networking
 
-
 **2. Compute Optimized
 - For compute intensive tasks like: Batch processing workloads, media transcoding, high perf web-servers, high perf computing (HPC), scientific modelling and learning, dedicated gaming servers.
 
@@ -188,7 +177,7 @@ Geographical region, VPC config and tenancy model
 - A good idea to separate/create a new VPC for each of your project or project strages like different VPCs for early app dev another for beta testing etc
 - Tenancy - can be shared or dedicated - shared means you could share the server with other customers and opposite for dedicated. Costs will be obvio ....
 
-####NOTE:
+#### NOTE:
 You can always change an instance type as followe:
 1. Stop the instance. (Remember, your public IP address might be different when you start up again.)
 2. From the Actions drop-down, click Instance Settings and then Change Instance Type. Select a new type.
@@ -247,6 +236,13 @@ Just like creating an EC2 instance but in there you gotta enable this:
 ## Resource Tags
 Used to identify stuff. Has a key and a value e.g: Production server - server1
 ![image](https://user-images.githubusercontent.com/43883264/162855817-53c64ad9-2548-4394-a3a7-b6c77f1cd396.png)
+
+### Elastic IPs on AWS - why's and why nots
+A public static IP address assigned by yourself to your instance and is totally yours till you use it. Not a really good idea to use it because of the reasons below;
+![image](https://user-images.githubusercontent.com/43883264/162856750-c799b669-0638-4d1f-aa72-977b1d8d3428.png)
+Hands on is basically create the IP and associate it, you can figure it. This IP can either be attached to an instance or to an interface
+
+**DON'T FORGET TO DISASSOCIATE THE ELASTIC IP ONCE DONE AND RELEASE THE IP, OTHERWISE YOU WILL BE CHARGED FOR IT**
 
 ## Service limits on AWS
 Limits could apply like 5 VPCs per region or 5000 SSH key pairs across your account. This could be raised by AWS
