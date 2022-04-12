@@ -240,8 +240,13 @@ It's all under spot requests
 Just like creating an EC2 instance but in there you gotta enable this:
 ![image](https://user-images.githubusercontent.com/43883264/162855280-58ce9fa4-23d9-40dd-b98c-2c0b9746b7b2.png)
 
+#### Launching reserved instances - Discussed above
+![image](https://user-images.githubusercontent.com/43883264/162855502-59a6a749-e2fb-4646-b507-4924093090df.png)
+
+#### Launching Capacity Reservations - basically i need this much compute no matter what scenario
 ## Resource Tags
 Used to identify stuff. Has a key and a value e.g: Production server - server1
+![image](https://user-images.githubusercontent.com/43883264/162855817-53c64ad9-2548-4394-a3a7-b6c77f1cd396.png)
 
 ## Service limits on AWS
 Limits could apply like 5 VPCs per region or 5000 SSH key pairs across your account. This could be raised by AWS
