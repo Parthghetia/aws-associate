@@ -121,18 +121,7 @@
 - Simple Queue Service - event-driven messaging within distributed systems that can decouple while coordinating the discrete step of the larger process. The data contained in your SQS messages will be reliably delivered, adding to the fault tolerant qualities of an application
 - API Gateway - to create and manage secure and reliable APIs for your AWS based applications
 
-### Provisioning an EC2 instance
-
-An AMI is really just a template that has information telling EC2 what OS and application software to include on the root data volume
-
-Four kinds of AMIs:
-1. Amazon quick start AMIs - self
-2. Marketplace AMIs - prod ready images
-3. Community AMIs - indendepently created stuff
-4. Private AMIs - own stuff
-
-AMIs is only available in one region. if you invoke the ID of an AMI from a different region it will fail
-
+### EC2 instances
 There are many instance types to suit your needs. Feel free to browse them here:
 aws.amazon.com/ec2/instance-types
 
@@ -304,10 +293,60 @@ When instances are terminated - ENIs created manually will stay and the instance
 How you would move it from one instance to another is by just detaching from same UI above and attaching to the instance you want
 ## Service limits on AWS
 Limits could apply like 5 VPCs per region or 5000 SSH key pairs across your account. This could be raised by AWS
+## AMI
+
+An AMI is a customization of an EC2 instance - faster boot time is what we run for, all pre-packaged. Can be built in one region and can be copied across regions
+
+Four kinds of AMIs:
+1. Amazon quick start AMIs - self
+2. Marketplace AMIs - prod ready images
+3. Community AMIs - indendepently created stuff
+4. Private AMIs - own stuff
+
+AMIs is only available in one region. if you invoke the ID of an AMI from a different region it will fail
+
+### Creating a Private/Custom AMI from an EC2 instance
+![image](https://user-images.githubusercontent.com/43883264/163092704-1b4b4d68-f63e-4851-8169-c57afb22a803.png)
+
 
 # EC2 Storage Volumes
 ## 1. Elastic Block Store Volumes
+- A network drive you could attach to your instances. Allows persistent data even after instance termination
 - You can attach as many EBS volumes to your instance as you would like (only one at a time can attach tho)
+
+
+- EBS volumes things to note:
+1. A network drive - so some latency is there
+2. ![image](https://user-images.githubusercontent.com/43883264/163088606-842807dd-fc79-439e-a75d-36d975112284.png)
+3. Multi-attach is possible
+4. EBS volumes bound to an AZ like EC2 instances
+5. ![image](https://user-images.githubusercontent.com/43883264/163088905-f48d78b9-8942-4d7b-b4ab-5b466a084807.png)
+### Hands on creating an EBS Volume
+![image](https://user-images.githubusercontent.com/43883264/163089517-85b1c54f-1a18-45c9-8492-70bd2c8a69ee.png)
+- attaching the volume to an instance
+![image](https://user-images.githubusercontent.com/43883264/163089621-780b1215-839f-4fd0-ab09-df2fae380628.png)
+
+## EBS Snapshots
+![image](https://user-images.githubusercontent.com/43883264/163090773-175aca8c-96be-4a02-8ced-5af723204b6d.png)
+
+### EBS Snapshots Hands On
+- Creating a snapshot is easy - just go to the volume and click on create snapshot
+- Now comes the power, where you can move the snapshot to another region like so:
+![image](https://user-images.githubusercontent.com/43883264/163091544-20d1b653-9060-4976-b52a-97327d8b1b80.png)
+![image](https://user-images.githubusercontent.com/43883264/163091561-4c12220b-3455-4d2b-bd56-4ff76f454c59.png)
+
+- You can then create a volume from the snapshot like so
+![image](https://user-images.githubusercontent.com/43883264/163091652-ccab1916-66f8-4a10-94b2-66887ca54fe3.png)
+![image](https://user-images.githubusercontent.com/43883264/163091716-18476523-02ad-4ded-99c3-c548bb463775.png)
+
+- You also have a recycle bin as follows
+![image](https://user-images.githubusercontent.com/43883264/163091857-8a6040de-96b8-465a-bebb-897d2cbaeceb.png)
+![image](https://user-images.githubusercontent.com/43883264/163091905-2692c591-e6c1-4046-b33e-6b3267ad664f.png)
+
+- You can also archive a snapshot to save money as well
+EBS Snapshot features
+![image](https://user-images.githubusercontent.com/43883264/163090915-b468d0d7-3a6f-4228-8c46-b0970b9cb81e.png)
+
 Four EBS volume types:
 - EBS-Provisioned IOPS(Input Output Per Second) SSD - for intense use 64000 IOPS/Volume and a maximum throughput of 1000 mb/s
 - EBS-General Purpose SSD - 16000 IOPS/Volume - Costs can be checked
