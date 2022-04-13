@@ -1,13 +1,6 @@
 
 - [AWS-ASSOCIATE](#aws-associate)
   - [Known terms to be used](#known-terms-to-be-used)
-    - [Networking terms to be used](#networking-terms-to-be-used)
-    - [Storage terms to be used](#storage-terms-to-be-used)
-    - [DB terms to be used](#db-terms-to-be-used)
-    - [Application Management terms to be used](#application-management-terms-to-be-used)
-    - [Security and identity terms to be used](#security-and-identity-terms-to-be-used)
-    - [Application integration terms to be used](#application-integration-terms-to-be-used)
-    - [Provisioning an EC2 instance](#provisioning-an-ec2-instance)
   - [EC2 Instance Purchasing Options](#ec2-instance-purchasing-options)
     - [EC2 On Demand](#ec2-on-demand)
     - [EC2 Reserved Instances - Numbers could change with time](#ec2-reserved-instances---numbers-could-change-with-time)
