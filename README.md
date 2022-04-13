@@ -199,9 +199,13 @@ echo "<h1>Hello World from $(hostname -f)</h1>" > /var/www/html/index.html
 
 ### EC2 placement groups
 This gives you the power to define non-standard profiles to place your instances to meet your needs. Three kinds:
-1. Cluster groups - launch easy instance into one zone (close proximity)
-2. Spread groups - separate instances physically across different H/w racks and even availability zones to reduce risk of failure. Similar to VMWare's Distributed Resource Scheduler
-3. Paritition groups - lets you associate some instances with each other. Placing them in a single partition. But the instances within that single partition can be kept physically separated from instances within other partitions. This differs from spread groups where no two instances ever share physical hardware
+![image](https://user-images.githubusercontent.com/43883264/162859406-8d7704ca-65b8-42e8-a0b6-9ac90287cf50.png)
+Partition Groups - will explain the rest too
+![image](https://user-images.githubusercontent.com/43883264/162862205-54637f6d-438d-4dad-a88a-a4ec2f9b97fe.png)
+
+- Creating a placement group is simple, just go to Network and Security, create group and choose one of 3 options above
+- The instance then gets placed like so: 
+- ![image](https://user-images.githubusercontent.com/43883264/162862096-0991a0aa-15e9-4971-b31c-520cc9c215b7.png)
 
 ## Terminating an instance - Things to note
 This destroys the data inside but only if you are using an Elastic Block Store (EBS) and the volume is set to persist that you can keep the data (used in k8s)
@@ -242,8 +246,14 @@ A public static IP address assigned by yourself to your instance and is totally 
 ![image](https://user-images.githubusercontent.com/43883264/162856750-c799b669-0638-4d1f-aa72-977b1d8d3428.png)
 Hands on is basically create the IP and associate it, you can figure it. This IP can either be attached to an instance or to an interface
 
-**DON'T FORGET TO DISASSOCIATE THE ELASTIC IP ONCE DONE AND RELEASE THE IP, OTHERWISE YOU WILL BE CHARGED FOR IT**
+**DON'T FORGET TO DISASSOCIATE THE ELASTIC IP ONCE DONE AND RELEASE THE IP, OTHERWISE YOU WILL BE CHARGED FOR IT
 
+### Elastic Network Interfaces (ENI) 
+![image](https://user-images.githubusercontent.com/43883264/163076791-bfae43a4-c662-4445-bb82-460797983fa2.png)
+
+### ENI Hands on
+Whyould you need an ENI. This interface could easily be moved across instances. Amazing right!
+- Imagine you got an app on a server and the server fails you could just move the IP to another server that has the same IP and your app would still keep running
 ## Service limits on AWS
 Limits could apply like 5 VPCs per region or 5000 SSH key pairs across your account. This could be raised by AWS
 
@@ -578,6 +588,5 @@ Then just create a budget and follow the options. This is what was followed by m
 ![image](https://user-images.githubusercontent.com/43883264/162354079-dbc2143e-755b-41cb-b9b0-7c655b430c6d.png)
 - You could add an action as shown below, but don't forget you'd need a role so that the service can act accordingly. Like shutting down EC2 instances
 ![image](https://user-images.githubusercontent.com/43883264/162354170-10fb148d-0a60-4d59-b632-383c6a7fdfc7.png)
-
 
 
