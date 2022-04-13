@@ -38,6 +38,10 @@
     - [Elastic IPs on AWS - why's and why nots](#elastic-ips-on-aws---whys-and-why-nots)
     - [Elastic Network Interfaces (ENI)](#elastic-network-interfaces-eni)
     - [ENI Hands on](#eni-hands-on)
+    - [EC2 Hibernate - an option to start your instances really fast - due to the following reasons](#ec2-hibernate---an-option-to-start-your-instances-really-fast---due-to-the-following-reasons)
+    - [EC2 Hibernate - Hands on](#ec2-hibernate---hands-on)
+    - [EC2 Optimizing CPU options for an application](#ec2-optimizing-cpu-options-for-an-application)
+    - [EC2 Nitro](#ec2-nitro)
   - [Service limits on AWS](#service-limits-on-aws)
 - [EC2 Storage Volumes](#ec2-storage-volumes)
   - [1. Elastic Block Store Volumes](#1-elastic-block-store-volumes)
@@ -280,8 +284,31 @@ Hands on is basically create the IP and associate it, you can figure it. This IP
 ![image](https://user-images.githubusercontent.com/43883264/163076791-bfae43a4-c662-4445-bb82-460797983fa2.png)
 
 ### ENI Hands on
-Whyould you need an ENI. This interface could easily be moved across instances. Amazing right!
+- Why would you need an ENI. This interface could easily be moved across instances. Amazing right!
 - Imagine you got an app on a server and the server fails you could just move the IP to another server that has the same IP and your app would still keep running
+- How to create an ENI
+![image](https://user-images.githubusercontent.com/43883264/163078118-3df4ee43-deec-4109-a907-51ec237bf925.png)
+- Make sure to choose the same subnet as the instance you want to attach to
+![image](https://user-images.githubusercontent.com/43883264/163078191-32bb6a7a-1eb7-4df4-9455-b0949fab4dd4.png)
+
+### EC2 Hibernate - an option to start your instances really fast - due to the following reasons
+![image](https://user-images.githubusercontent.com/43883264/163080767-92b43c8d-91b2-4ec3-89e9-7275ac1df696.png)
+- Instance RAM size must be less than 150Gb
+- Cannot be hibernated not more than 60 days
+### EC2 Hibernate - Hands on
+![image](https://user-images.githubusercontent.com/43883264/163083972-fcc1b83e-5ac0-4542-8b67-e03acaae054a.png)
+![image](https://user-images.githubusercontent.com/43883264/163084032-0a562f3f-2e1e-4fff-a522-2170cd325dbc.png)
+
+### EC2 Optimizing CPU options for an application
+![image](https://user-images.githubusercontent.com/43883264/163085454-82ffe25d-7edd-45b6-9d5e-27c44ededc67.png)
+
+### EC2 Nitro
+![image](https://user-images.githubusercontent.com/43883264/163085089-9ab3b0e7-4ef9-4a4d-9721-af091f968d44.png)
+ 
+A good check is check uptime before and after hibernating. The same!
+Make sure 
+When instances are terminated - ENIs created manually will stay and the instance created ENIs will be deleted! Okay?
+How you would move it from one instance to another is by just detaching from same UI above and attaching to the instance you want
 ## Service limits on AWS
 Limits could apply like 5 VPCs per region or 5000 SSH key pairs across your account. This could be raised by AWS
 
