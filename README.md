@@ -389,6 +389,21 @@ These are ephemeral - Why use instance store volumes:
 Whether one or more volumes will be available for your instance will depend on the instance type you choose
 
 ## 3. Elastic File System (EFS)
+![image](https://user-images.githubusercontent.com/43883264/163650304-828cc8c7-f1eb-43e4-bb87-ba64afb3dde7.png)
+Use Cases:
+- Content mgmt, web serving, data sharing, Wordpress
+
+- It uses the NFSv4.1 protocol
+- Uses security groups to control access to EFS
+- Compatible with only Linux based AMIs and not windows
+- File system scales automatically, and its pay per use for each Gb of storage used
+
+### EFS Performance and Storage Classes
+![image](https://user-images.githubusercontent.com/43883264/163650730-6e1e1cd9-3cc7-4315-9a2c-6e6427ab5a68.png)
+
+#### EFS Storage Classes
+- Basically used for cost saving in prod, for files that are not accessed so frequently
+![image](https://user-images.githubusercontent.com/43883264/163650818-d721545e-49cb-4d3e-be4e-4ee1cc3a8531.png)
 
 ## Accessing your EC2 instance
 - Out of the box your instance can only connect within the subnet to other resources 
