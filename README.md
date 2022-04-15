@@ -308,7 +308,11 @@ AMIs is only available in one region. if you invoke the ID of an AMI from a diff
 ### Creating a Private/Custom AMI from an EC2 instance
 ![image](https://user-images.githubusercontent.com/43883264/163092704-1b4b4d68-f63e-4851-8169-c57afb22a803.png)
 
+### Custom AMI Hands On
+![image](https://user-images.githubusercontent.com/43883264/163629561-5c11d04e-958a-4222-82db-732c8df83f83.png)
+![image](https://user-images.githubusercontent.com/43883264/163629630-4a923a67-a662-4527-80ad-4ca5cf638f0b.png)
 
+You can then launch instances using your custom AMI. Saves time
 # EC2 Storage Volumes
 ## 1. Elastic Block Store Volumes
 - A network drive you could attach to your instances. Allows persistent data even after instance termination
@@ -348,18 +352,43 @@ EBS Snapshot features
 ![image](https://user-images.githubusercontent.com/43883264/163090915-b468d0d7-3a6f-4228-8c46-b0970b9cb81e.png)
 
 Four EBS volume types:
-- EBS-Provisioned IOPS(Input Output Per Second) SSD - for intense use 64000 IOPS/Volume and a maximum throughput of 1000 mb/s
-- EBS-General Purpose SSD - 16000 IOPS/Volume - Costs can be checked
-- Throughput Optimized HDD - for log processing and big data operations that need high throughput - 500 IOPS/volume
-- Cold HDD - larger volumes of data that require infrequent access
+- EBS-Provisioned IOPS(Input Output Per Second) SSD (called io1/io2 SSD) - for intense use 64000 IOPS/Volume and a maximum throughput of 1000 mb/s. io2 volumes have multi-attach capabilities to multiple instances at the same time
+- EBS-General Purpose SSD (called gp2/gp3 SSD) - 16000 IOPS/Volume - Costs can be checked
+- Throughput Optimized HDD (called st1 HDD)- for log processing and big data operations that need high throughput - 500 IOPS/volume -  good for Big Data, Data Warehouses, Log processing
+- Cold HDD (called sc1 HDD) - larger volumes of data that require infrequent access
 
-# Instance Store Volumes
+Details on AWS documentation for each of the storage intances above
+
+### EBS Encryption
+- All done by AWS and you dont need to do much to encrypt the data. Minimal latency diffs.
+- Snapshots of encrypted volumes are encrypted 
+- You can also encrypt unencrypted volumes
+- Copying an unencrypted snapshot enables encryption. Yes you heard right! Copying it
+- ![image](https://user-images.githubusercontent.com/43883264/163632036-b61ba2b2-9278-4956-ad42-c986d9a26a1d.png)
+
+### EBS Encryption Hands-On
+1. Create a snapshot of the volume you want to encrypt
+2. ![image](https://user-images.githubusercontent.com/43883264/163632189-dd84ca5d-7f8e-4209-ad56-01707669ba23.png)
+3. ![image](https://user-images.githubusercontent.com/43883264/163632216-505c41b6-cc38-40b0-ad17-d2a354d762ba.png)
+4. Then create a volume from the snapshot
+That's it
+
+There is a shorter way though. Once you have a snapshot of the volume. You can create a volume from the snapshot and choose encryption. Much easier right? See below:
+![image](https://user-images.githubusercontent.com/43883264/163632378-26c2ee16-1f97-40e1-8ecd-e99f8796b52c.png)
+![image](https://user-images.githubusercontent.com/43883264/163632409-37a2384c-0088-4a2f-9e41-a69389a68d52.png)
+
+
+## 2. EC2 Instance Store Volumes
 These are ephemeral - Why use instance store volumes:
-- These are SSDs attached to the server hosting your instance and connected via a fast NVMe (Non-Volatile Memory Express) interface
+- These are SSDs attached to the server hosting your instance and connected via a fast NVMe (Non-Volatile Memory Express) interface - basically hardware attached to your EC2 instance
 - Use of instance volumes is included in the instance pricing
 - Work well for deployment models where instances are launched to fill short-term roles (for lets say importing some stuff)
+- They are a great choice when you want great I/O performance
+- Only gp2/gp3 and io1 and io2 can be used as boot volumes for EC2 instances. KEEP IN MIND!
 
 Whether one or more volumes will be available for your instance will depend on the instance type you choose
+
+## 3. Elastic File System (EFS)
 
 ## Accessing your EC2 instance
 - Out of the box your instance can only connect within the subnet to other resources 
