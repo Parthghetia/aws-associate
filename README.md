@@ -428,6 +428,10 @@ An easier way to tackle this is - make one security group for all your instances
 The instance security group basically acts as an identifier here for the EFS security group to connect to
 Here is my example:
 
+### EBS vs EFS summary
+![image](https://user-images.githubusercontent.com/43883264/163859139-4c5b5636-953a-4108-8272-0e3b716a3d62.png)
+![image](https://user-images.githubusercontent.com/43883264/163859667-356e106a-cb77-4855-9c3e-a204facc5088.png)
+
 ## Accessing your EC2 instance
 - Out of the box your instance can only connect within the subnet to other resources 
 - If your instance needs multiple network interfaces (to connect to other resources) you can create and attach one or more virtual elastic network interfaces to your instance. Each of these interfaces must be connected to a subnet and security group.
