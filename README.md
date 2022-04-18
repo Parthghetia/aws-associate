@@ -405,6 +405,29 @@ Use Cases:
 - Basically used for cost saving in prod, for files that are not accessed so frequently
 ![image](https://user-images.githubusercontent.com/43883264/163650818-d721545e-49cb-4d3e-be4e-4ee1cc3a8531.png)
 
+### EFS - Hands On
+- Its a completely different service
+![image](https://user-images.githubusercontent.com/43883264/163739451-b3200a01-a179-4a20-884e-789cd125a957.png)
+![image](https://user-images.githubusercontent.com/43883264/163739485-6d0309d1-11c1-4090-913d-27bbccf8bc8f.png)
+- Looking at lifecycle mgmt below, you can choose to transfer a file that has not been accessed for let's say 30 days like below to the IA storage class (to save costs obvio)
+![image](https://user-images.githubusercontent.com/43883264/163739566-2c8fcda0-f8f1-48a0-a5dc-83f373607e0b.png)
+- You can choose for your EFS to have accessibility to various AZs like below (Notice you can attach a SG)
+![image](https://user-images.githubusercontent.com/43883264/163739901-b283baf2-7fd6-4b7e-8d8e-84586061dd8c.png)
+![image](https://user-images.githubusercontent.com/43883264/163739930-caae9634-9d57-4702-84b6-905d3c36b03e.png)
+
+Once EFS is setup, you could manually set it up on the instances by first installing the nfs-utils package as shown below:
+https://docs.aws.amazon.com/efs/latest/ug/installing-amazon-efs-utils.html
+
+You then need to mount your filesystem using the EFS mount helper on your instances like below, details to that can be find on your EFS instance when you click attach
+![image](https://user-images.githubusercontent.com/43883264/163747583-218d48cd-d4d4-42b1-b802-086725f8aa8d.png)
+
+When you try this for the first time it may time out (Yes you guessed it right! Security groups!)
+An easier way to tackle this is - make one security group for all your instances (Say ec2-to-efs) - create another security group that attaches to your EFS instance (in my case created earlier) and allow port for NFS. In this, only allow the security group created earlier (in the inbound rule) and VOILA!
+![image](https://user-images.githubusercontent.com/43883264/163747847-d7f7e956-baff-4d16-bcb6-02d69c5311df.png)
+
+The instance security group basically acts as an identifier here for the EFS security group to connect to
+Here is my example:
+
 ## Accessing your EC2 instance
 - Out of the box your instance can only connect within the subnet to other resources 
 - If your instance needs multiple network interfaces (to connect to other resources) you can create and attach one or more virtual elastic network interfaces to your instance. Each of these interfaces must be connected to a subnet and security group.
