@@ -278,6 +278,22 @@ Basically security groups linking together here
 ![image](https://user-images.githubusercontent.com/43883264/163900975-27ab6594-3a33-437a-9189-db464d32110f.png)
 
 ### Application Load Balancer - Hands On
+![image](https://user-images.githubusercontent.com/43883264/164094918-7bfca99e-439e-4a78-a5b2-3090c826c344.png)
+
+- For security groups, you need to create both an incoming and outgoing security group. Think of it. LB is supposed to take in traffic and push it out. So gotta allow both right??? So everything from outside coming on port 80 (for a web server). Then anything from the LB to a security group common to all instances allowing port 80 traffic out of the LB.
+- You then create a target group as below:
+![image](https://user-images.githubusercontent.com/43883264/164098256-eefae306-b548-4297-b0af-62e8ecf4bfae.png)
+![image](https://user-images.githubusercontent.com/43883264/164098683-20d1b356-b149-44e0-a2e4-e4c56c95fd55.png)
+
+With ALBs you could actually program the traffic. So we created another target group, and we are going to define a flow that says. If we hit <app-dns-fqdn>/test - please go to target group XYZ. Basically we could route our test-app traffic to the instances in that target group
+
+- So once ALB is created you can edit rules here:
+![image](https://user-images.githubusercontent.com/43883264/164102719-924baedd-7cb8-4286-96e7-98c23ed3d3c1.png)
+![image](https://user-images.githubusercontent.com/43883264/164102764-747451ca-705e-49a6-84d7-ebb73a48d6e7.png)
+
+- And we could also do something like this:
+![image](https://user-images.githubusercontent.com/43883264/164102844-d86147a1-2562-45fc-aa7c-fcf0b8147d52.png)
+
 
 ## EC2 Auto Scaling
 EC2 auto scaling uses either *Launch Configuration* or *Launch Template* to automatically configure the instances that it launches
