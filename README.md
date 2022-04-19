@@ -505,72 +505,6 @@ This is what AWS provides to secure your instance:
 ### Key Pairs
 Self explanatory
 
-## EC2 Auto Scaling
-EC2 auto scaling uses either *Launch Configuration* or *Launch Template* to automatically configure the instances that it launches
-### Launch Configuration
-This is a template/named doc that contains information to not basically go through the whole process of creating an instance
-- You can create a launch configuration from an existing EC2 instance. Auto scaling will copy the settings but you can edit as you wish
-- Launch Configs are only used for EC2 Auto Scaling - meaning you cant manually launch an instance using the launch config
-- Once you create your launch config you cannot modify, need to create a new one
-
-### Launch Templates
-- You can use a launch template to auto scale but also to spin up EC2 instances or even creating a spot fleet
-- They are also versioned, allowing you to change them after creation
-# LAB
-## Creating a launch template
-![image](https://user-images.githubusercontent.com/43883264/160720067-efb3cc87-cbb6-4c44-839c-7c334fed54ee.png)
-
-## Auto Scaling Groups
-
-- When creating an Auto Scaling group - you need to specify the following:
-1. Launch config/template
-2. How many running instances you want auto-scaling to maintain at all times
-3. Min and max size of auto scaling group
-
-##### NOTE: If Min number of instances is set to 0 - auto scaling will not spawn any instances and will terminate any running instances as well
-
-## Specifying an Application load balancer target group
-- If you want to load balance traffic to instances in your group - just plug in the name of the ALB when creating the auto scaling group. New instances will automatically be added to the ALB group
-
-## Health checks against application instances
-- By default EC2 health checks on an instance are used to determine the health of the instance - you can also integrate CloudWatch, CloudTrail health checks
-- If you are using an ALB group you can also configure health checks to the application target group
-
-## Auto Scaling Options
-### Manual Scaling
-As the name suggests
-## Dynamic scaling policies
-Auto scaling generates these metrics to ensure that EC2 instances always meet your demand:
-1. Aggregrate CPU util
-2. Average request count per target
-3. Avg network bytes in and out (2 diff metrics)
-
-You can always integrate new metrics from CloudWatch logs and use those. As an example, your application may generate logs that indicate how long it takes to complete a process. If the process takes too long, you could have Auto Scaling spin up new instances.
-
-Dynamic scaling policies work by monitoring a cloud watch alarm and scaling out by increasing desired capacity. There are three dynamic policies to choose from:
-
-### 1. Simple Scaling Policies
-Whenever, metrics rises, auto scaling increases capacity. That's it. How much capacity is increased depends on the three factors (as chosen by user) below:
-- ChangeInCapacity - increase by specified amount
-- ExactCapacity - to an exact number as specified - e.g to 6 when load increases
-- PercentChangeInCapacity - increase capacity by a percent of the current amount. 4 to 6 by 50 % (set by user)
-
-After auto scaling completes the adjustment - it waits a cooldown period before executing the policy again, even if the alarm is still breaching (300 sec by default)
-
-### 2. Step Scaling Policies
-If the demand on your app is rapidly increasing a simple scaling policy may not do the job. With step you can add instances, based on how much the aggregrate metric has increased above the threshold.
-
-E.g:
-![image](https://user-images.githubusercontent.com/43883264/161151772-ab87fce3-df49-490b-88b1-bc16772cca58.png)
-
-There is also a warm up time - basically time to be taken before taking into consideration the metrics of the newly added instances
-### 3. Target Tracking Policies
-If step scaling policies are too into the application, you could create target tracking policies. Basically, select a metric and a value and auto scaling will create a cloudWatch alarm and a scaling policy to adjust the number of instances to keep the metric near that target
-
-Also target tracking will scale in by deleting instances based on the target metric value. Warm up time can be specified too
-
-
-
 ## Scheduled Actions
 This is for proactive times before demand hits like - weekends.
 When you create a scheduled action you must specify the following:
@@ -746,5 +680,92 @@ Then just create a budget and follow the options. This is what was followed by m
 ![image](https://user-images.githubusercontent.com/43883264/162354079-dbc2143e-755b-41cb-b9b0-7c655b430c6d.png)
 - You could add an action as shown below, but don't forget you'd need a role so that the service can act accordingly. Like shutting down EC2 instances
 ![image](https://user-images.githubusercontent.com/43883264/162354170-10fb148d-0a60-4d59-b632-383c6a7fdfc7.png)
+
+# High Availability
+- This in AWS means running your application/system in at least 2 DCs (- AZs)
+- Vertical scaling - increase size of instance and horizontal means increasing number of instances.
+- Here are the tools to use in order to achieve, availability and scalability
+![image](https://user-images.githubusercontent.com/43883264/163860914-bbd041d5-aa70-4ccd-a77a-234160f9cc1d.png)
+
+## Load Balancing
+- Servers that forward traffic to multiple servers downstream
+![image](https://user-images.githubusercontent.com/43883264/163861081-aca9fd3a-abcd-44de-a753-7dc8b34cafbc.png)
+- Why use a load balancer?
+![image](https://user-images.githubusercontent.com/43883264/163862979-f5c2b23d-d7f2-4c0c-95fb-7cb358c9083d.png)
+- Why use an elastic load balancer?
+![image](https://user-images.githubusercontent.com/43883264/163863352-158fc37a-d8ba-4ca8-bb79-328adf16ba65.png)
+- Health checks - how they work?
+![image](https://user-images.githubusercontent.com/43883264/163863596-fc091e41-d062-4531-a24a-8d56552b7310.png)
+- Types of Load Balancers on AWS
+![image](https://user-images.githubusercontent.com/43883264/163864675-fa866342-33e0-4436-9457-f6db763a07f9.png)
+- Load balancer security groups
+![image](https://user-images.githubusercontent.com/43883264/163865123-b64aaa64-bde4-4c74-9d1b-7345df7a3001.png)
+Basically security groups linking together here 
+
+## Classic Load Balancers
+
+## EC2 Auto Scaling
+EC2 auto scaling uses either *Launch Configuration* or *Launch Template* to automatically configure the instances that it launches
+### Launch Configuration
+This is a template/named doc that contains information to not basically go through the whole process of creating an instance
+- You can create a launch configuration from an existing EC2 instance. Auto scaling will copy the settings but you can edit as you wish
+- Launch Configs are only used for EC2 Auto Scaling - meaning you cant manually launch an instance using the launch config
+- Once you create your launch config you cannot modify, need to create a new one
+
+### Launch Templates
+- You can use a launch template to auto scale but also to spin up EC2 instances or even creating a spot fleet
+- They are also versioned, allowing you to change them after creation
+# LAB
+## Creating a launch template
+![image](https://user-images.githubusercontent.com/43883264/160720067-efb3cc87-cbb6-4c44-839c-7c334fed54ee.png)
+
+## Auto Scaling Groups
+
+- When creating an Auto Scaling group - you need to specify the following:
+1. Launch config/template
+2. How many running instances you want auto-scaling to maintain at all times
+3. Min and max size of auto scaling group
+
+##### NOTE: If Min number of instances is set to 0 - auto scaling will not spawn any instances and will terminate any running instances as well
+
+## Specifying an Application load balancer target group
+- If you want to load balance traffic to instances in your group - just plug in the name of the ALB when creating the auto scaling group. New instances will automatically be added to the ALB group
+
+## Health checks against application instances
+- By default EC2 health checks on an instance are used to determine the health of the instance - you can also integrate CloudWatch, CloudTrail health checks
+- If you are using an ALB group you can also configure health checks to the application target group
+
+## Auto Scaling Options
+### Manual Scaling
+As the name suggests
+## Dynamic scaling policies
+Auto scaling generates these metrics to ensure that EC2 instances always meet your demand:
+1. Aggregrate CPU util
+2. Average request count per target
+3. Avg network bytes in and out (2 diff metrics)
+
+You can always integrate new metrics from CloudWatch logs and use those. As an example, your application may generate logs that indicate how long it takes to complete a process. If the process takes too long, you could have Auto Scaling spin up new instances.
+
+Dynamic scaling policies work by monitoring a cloud watch alarm and scaling out by increasing desired capacity. There are three dynamic policies to choose from:
+
+### 1. Simple Scaling Policies
+Whenever, metrics rises, auto scaling increases capacity. That's it. How much capacity is increased depends on the three factors (as chosen by user) below:
+- ChangeInCapacity - increase by specified amount
+- ExactCapacity - to an exact number as specified - e.g to 6 when load increases
+- PercentChangeInCapacity - increase capacity by a percent of the current amount. 4 to 6 by 50 % (set by user)
+
+After auto scaling completes the adjustment - it waits a cooldown period before executing the policy again, even if the alarm is still breaching (300 sec by default)
+
+### 2. Step Scaling Policies
+If the demand on your app is rapidly increasing a simple scaling policy may not do the job. With step you can add instances, based on how much the aggregrate metric has increased above the threshold.
+
+E.g:
+![image](https://user-images.githubusercontent.com/43883264/161151772-ab87fce3-df49-490b-88b1-bc16772cca58.png)
+
+There is also a warm up time - basically time to be taken before taking into consideration the metrics of the newly added instances
+### 3. Target Tracking Policies
+If step scaling policies are too into the application, you could create target tracking policies. Basically, select a metric and a value and auto scaling will create a cloudWatch alarm and a scaling policy to adjust the number of instances to keep the metric near that target
+
+Also target tracking will scale in by deleting instances based on the target metric value. Warm up time can be specified too
 
 
