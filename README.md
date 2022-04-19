@@ -703,6 +703,17 @@ Then just create a budget and follow the options. This is what was followed by m
 Basically security groups linking together here 
 
 ## Classic Load Balancers
+- An old style of LBs
+![image](https://user-images.githubusercontent.com/43883264/163898185-3e3de955-390f-430e-868f-cc17373be69a.png)
+- As this is deprecated. If you wanna go through the hands on. Go here: https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/learn/lecture/26148288#content
+
+## Application Load Balancer
+
+![image](https://user-images.githubusercontent.com/43883264/163900462-fc0f9f34-9a2f-4ba4-8627-2b0baf57f6eb.png)
+![image](https://user-images.githubusercontent.com/43883264/163900582-4997b97f-b667-4f0f-854a-3389760444e2.png)
+
+![image](https://user-images.githubusercontent.com/43883264/163900680-11a13c21-2f19-47c6-9ec9-60d005a62fed.png)
+
 
 ## EC2 Auto Scaling
 EC2 auto scaling uses either *Launch Configuration* or *Launch Template* to automatically configure the instances that it launches
