@@ -50,3 +50,27 @@ With ALBs you could actually program the traffic. So we created another target g
 - And we could also do something like this:
 ![image](https://user-images.githubusercontent.com/43883264/164102844-d86147a1-2562-45fc-aa7c-fcf0b8147d52.png)
 
+## Network Load Balancer
+![image](https://user-images.githubusercontent.com/43883264/164116555-80937421-5b8a-4dba-92a1-9c5a3d81c845.png)
+- Target groups that can be used for network load balancers:
+  1. EC2 instances
+  2. IP addresses ( must be private IP addresses on the inside)
+  3. Application Load Balancer - this could be in a case where you want both HTTP level load balancing with all the rules and also use the NLB for tcp based load balancing.
+  
+### Network Load Balancer - Hands on
+ - Its all the same there is no much difference in the hands on here. Same stuff. Just that you can assign your own Elastic IP if any within the config page
+  ![image](https://user-images.githubusercontent.com/43883264/164117521-cce8fb37-60fd-45e2-bdce-d13a0941ee79.png)
+ - Remember you always need a security group
+
+### Gateway Load Balancer
+- It's basically/mostly used for Network Virtual Security appliances like Firewalls and IDS like so
+  ![image](https://user-images.githubusercontent.com/43883264/164118010-78fc3970-17b5-443a-bc17-f704601f58f9.png)
+- Uses the GENEVE protocol on port 6081
+- Target Groups could be EC2 instances or private IPs
+
+## Sticky Sessions in Load Balancers
+- This is important to know in cases where the application login gets timed out. Or a connection gets reset. This is where you need to enable this
+![image](https://user-images.githubusercontent.com/43883264/164119272-dd932ed2-00b9-4d3d-a428-e2a7d91f517a.png)
+![image](https://user-images.githubusercontent.com/43883264/164119281-ac907f97-9d15-4e1c-9dc3-72cd62b7fb03.png)
+
+  
