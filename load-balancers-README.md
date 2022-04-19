@@ -74,5 +74,12 @@ With ALBs you could actually program the traffic. So we created another target g
 ![image](https://user-images.githubusercontent.com/43883264/164119272-dd932ed2-00b9-4d3d-a428-e2a7d91f517a.png)
 ![image](https://user-images.githubusercontent.com/43883264/164119332-f57aa1f4-83fe-44eb-84e9-2454eccf74cb.png)
 
+- This can be changed in the target group like so:
+![image](https://user-images.githubusercontent.com/43883264/164119442-8afdf9d6-431b-49d8-95a7-d28a1698a448.png)
+
+![image](https://user-images.githubusercontent.com/43883264/164119509-a6f24cb3-47ee-4fa8-bed0-770bde8419be.png)
+
+** How to check cookies on your browser and when it expires once it is set:
+![image](https://user-images.githubusercontent.com/43883264/164119646-0ade42ad-6cb7-4586-8a19-539e2b348615.png)
 
   
