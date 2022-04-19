@@ -79,7 +79,7 @@ With ALBs you could actually program the traffic. So we created another target g
 
 ![image](https://user-images.githubusercontent.com/43883264/164119509-a6f24cb3-47ee-4fa8-bed0-770bde8419be.png)
 
-** How to check cookies on your browser and when it expires once it is set:
+**How to check cookies on your browser and when it expires once it is set:
 ![image](https://user-images.githubusercontent.com/43883264/164119646-0ade42ad-6cb7-4586-8a19-539e2b348615.png)
 
   
