@@ -270,10 +270,10 @@ Basically security groups linking together here
 ## Application Load Balancer
 
 ![image](https://user-images.githubusercontent.com/43883264/163900462-fc0f9f34-9a2f-4ba4-8627-2b0baf57f6eb.png)
+
 ![image](https://user-images.githubusercontent.com/43883264/163900582-4997b97f-b667-4f0f-854a-3389760444e2.png)
 
 ![image](https://user-images.githubusercontent.com/43883264/163900942-72022c3c-c7d4-4dc8-963e-eaf3e5dd8f06.png)
-![image](https://user-images.githubusercontent.com/43883264/163900975-27ab6594-3a33-437a-9189-db464d32110f.png)
 
 ### Application Load Balancer - Hands On
 ![image](https://user-images.githubusercontent.com/43883264/164094918-7bfca99e-439e-4a78-a5b2-3090c826c344.png)
