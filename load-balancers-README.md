@@ -70,7 +70,9 @@ With ALBs you could actually program the traffic. So we created another target g
 
 ## Sticky Sessions in Load Balancers
 - This is important to know in cases where the application login gets timed out. Or a connection gets reset. This is where you need to enable this
+
 ![image](https://user-images.githubusercontent.com/43883264/164119272-dd932ed2-00b9-4d3d-a428-e2a7d91f517a.png)
-![image](https://user-images.githubusercontent.com/43883264/164119281-ac907f97-9d15-4e1c-9dc3-72cd62b7fb03.png)
+![image](https://user-images.githubusercontent.com/43883264/164119332-f57aa1f4-83fe-44eb-84e9-2454eccf74cb.png)
+
 
   
