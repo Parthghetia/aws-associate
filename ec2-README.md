@@ -79,20 +79,20 @@ Ignore the diagram on the right - Couldn't snip it off
 
 ## EC2 Instance Types
 Instances are divided into 7 different types and they cover different use cases as below:
-**1. General Purpose
+** 1. General Purpose
 - For diversity of workloads like web-servers or code repos. Good balance between compute, memory and networking
 
-**2. Compute Optimized
+** 2. Compute Optimized
 - For compute intensive tasks like: Batch processing workloads, media transcoding, high perf web-servers, high perf computing (HPC), scientific modelling and learning, dedicated gaming servers.
 
-**3. Memory Optimized
+** 3. Memory Optimized
 - For performance for workloads that process large data sets of memory
 - For high perf relational/non-relational DB
 - Distributed web scale cache data stores
 - In memory databases optimized for Business Intelligence
 - Apps performing real time processing of big unstructured data
 
-**4. Storage Optimized
+** 4. Storage Optimized
 - For apps that require high, sequential, read and write access to large data sets on local storage
 - For high frequency online transaction processing (OTLP) systems
 - Relational and NoSql Dbs
