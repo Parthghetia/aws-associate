@@ -47,29 +47,37 @@ As the name suggests
 ## Dynamic scaling policies
 Auto scaling generates these metrics to ensure that EC2 instances always meet your demand:
 1. Aggregrate CPU util
-2. Average request count per target
+2. Average request count per target on the EC2 instance
 3. Avg network bytes in and out (2 diff metrics)
 
 You can always integrate new metrics from CloudWatch logs and use those. As an example, your application may generate logs that indicate how long it takes to complete a process. If the process takes too long, you could have Auto Scaling spin up new instances.
 
 Dynamic scaling policies work by monitoring a cloud watch alarm and scaling out by increasing desired capacity. There are three dynamic policies to choose from:
+![image](https://user-images.githubusercontent.com/43883264/164202701-688d59ae-7042-4d84-b7f7-60273a7782c1.png)
 
-### 1. Simple Scaling Policies
-Whenever, metrics rises, auto scaling increases capacity. That's it. How much capacity is increased depends on the three factors (as chosen by user) below:
-- ChangeInCapacity - increase by specified amount
-- ExactCapacity - to an exact number as specified - e.g to 6 when load increases
-- PercentChangeInCapacity - increase capacity by a percent of the current amount. 4 to 6 by 50 % (set by user)
+## Predictive Scaling
+![image](https://user-images.githubusercontent.com/43883264/164203113-86772a47-ecfd-47f5-8895-403b6c1b0744.png)
 
-After auto scaling completes the adjustment - it waits a cooldown period before executing the policy again, even if the alarm is still breaching (300 sec by default)
+### Scaling Cooldown
+- After any scaling happens there is a default cooldown (no activity happens to stabilize metrics) period of 300 secs. 
+- To save on config time. Best use ready-to-use AMIs to serve requests faster.
 
-### 2. Step Scaling Policies
-If the demand on your app is rapidly increasing a simple scaling policy may not do the job. With step you can add instances, based on how much the aggregrate metric has increased above the threshold.
+## Scaling policies - Hands on
+![image](https://user-images.githubusercontent.com/43883264/164204093-ee181a2d-d075-4a6f-bcc6-8f8335c7a582.png)
+- Scheduled Action
+![image](https://user-images.githubusercontent.com/43883264/164204268-2527ad2f-e0de-47b4-aa7e-63bb95888bf6.png)
+- Predictive Scaling Policy
+![image](https://user-images.githubusercontent.com/43883264/164204478-000054cd-6dcf-430e-9f7e-d0cfe596620a.png)
+- Dynamic Scaling Policies - Cloud watch alarms created for you. Can be seen as in snippet below
+![image](https://user-images.githubusercontent.com/43883264/164205256-41ddbeac-550f-4692-ac91-9b3c7f516bfc.png)
+![image](https://user-images.githubusercontent.com/43883264/164205688-815007f7-f736-48c0-870b-2222ab4b44f0.png)
 
-E.g:
-![image](https://user-images.githubusercontent.com/43883264/161151772-ab87fce3-df49-490b-88b1-bc16772cca58.png)
+- For step scaling and simple scaling you'd need to create your own CloudWatch alarm
+![image](https://user-images.githubusercontent.com/43883264/164205418-cf809e63-44a8-401b-8419-2631b3f8a40f.png)
+## ASG Termination Policy
+![image](https://user-images.githubusercontent.com/43883264/164206403-95584d72-4e04-4652-8903-0f36628d1a1b.png)
 
-There is also a warm up time - basically time to be taken before taking into consideration the metrics of the newly added instances
-### 3. Target Tracking Policies
-If step scaling policies are too into the application, you could create target tracking policies. Basically, select a metric and a value and auto scaling will create a cloudWatch alarm and a scaling policy to adjust the number of instances to keep the metric near that target
+In order to test this. You could try the dynamic one. install stress test utility for Amazon Linux and let it run. EC2 instances will be scaled.
 
-Also target tracking will scale in by deleting instances based on the target metric value. Warm up time can be specified too
+
+
