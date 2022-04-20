@@ -256,16 +256,25 @@ This is a template/named doc that contains information to not basically go throu
 - When creating an Auto Scaling group - you need to specify the following:
 1. Launch config/template
 2. How many running instances you want auto-scaling to maintain at all times
-3. Min and max size of auto scaling group
+3. Min and max size of auto scaling group (scaling policies)
+4. Load Balancer Information
 
+![image](https://user-images.githubusercontent.com/43883264/164123945-7363eb64-bd90-4343-8a26-faacabbcda4c.png)
+
+This is how to setup Auto Scaling Custom Metrics
+![image](https://user-images.githubusercontent.com/43883264/164124045-0d9e8da3-e79d-4305-b6e3-242ada21413d.png)
 ##### NOTE: If Min number of instances is set to 0 - auto scaling will not spawn any instances and will terminate any running instances as well
 
 ## Specifying an Application load balancer target group
 - If you want to load balance traffic to instances in your group - just plug in the name of the ALB when creating the auto scaling group. New instances will automatically be added to the ALB group
 
 ## Health checks against application instances
-- By default EC2 health checks on an instance are used to determine the health of the instance - you can also integrate CloudWatch, CloudTrail health checks
+- By default EC2 health checks on an instance are used to determine the health of the instance - you can also integrate CloudWatch, CloudTrail health checks. 
+
 - If you are using an ALB group you can also configure health checks to the application target group
+
+## Auto Scaling Groups - Things to know
+![image](https://user-images.githubusercontent.com/43883264/164124760-2d03a7da-0259-4708-bc94-3040e40266cc.png)
 
 ## Auto Scaling Options
 ### Manual Scaling
