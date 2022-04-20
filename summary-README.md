@@ -25,15 +25,6 @@
     - [Built-in insights](#built-in-insights)
   - [Billing in AWS](#billing-in-aws)
   - [Creating a budget and an alert for budget limits](#creating-a-budget-and-an-alert-for-budget-limits)
-  - [EC2 Auto Scaling](#ec2-auto-scaling)
-    - [Launch Configuration](#launch-configuration)
-    - [Launch Templates](#launch-templates)
-- [LAB](#lab)
-  - [Creating a launch template](#creating-a-launch-template)
-  - [Auto Scaling Groups](#auto-scaling-groups)
-        - [NOTE: If Min number of instances is set to 0 - auto scaling will not spawn any instances and will terminate any running instances as well](#note-if-min-number-of-instances-is-set-to-0---auto-scaling-will-not-spawn-any-instances-and-will-terminate-any-running-instances-as-well)
-  - [Specifying an Application load balancer target group](#specifying-an-application-load-balancer-target-group)
-  - [Health checks against application instances](#health-checks-against-application-instances)
   - [Auto Scaling Options](#auto-scaling-options)
     - [Manual Scaling](#manual-scaling)
   - [Dynamic scaling policies](#dynamic-scaling-policies)
@@ -236,45 +227,6 @@ Then just create a budget and follow the options. This is what was followed by m
 - You could add an action as shown below, but don't forget you'd need a role so that the service can act accordingly. Like shutting down EC2 instances
 ![image](https://user-images.githubusercontent.com/43883264/162354170-10fb148d-0a60-4d59-b632-383c6a7fdfc7.png)
 
-## EC2 Auto Scaling
-EC2 auto scaling uses either *Launch Configuration* or *Launch Template* to automatically configure the instances that it launches
-### Launch Configuration
-This is a template/named doc that contains information to not basically go through the whole process of creating an instance
-- You can create a launch configuration from an existing EC2 instance. Auto scaling will copy the settings but you can edit as you wish
-- Launch Configs are only used for EC2 Auto Scaling - meaning you cant manually launch an instance using the launch config
-- Once you create your launch config you cannot modify, need to create a new one
-
-### Launch Templates
-- You can use a launch template to auto scale but also to spin up EC2 instances or even creating a spot fleet
-- They are also versioned, allowing you to change them after creation
-# LAB
-## Creating a launch template
-![image](https://user-images.githubusercontent.com/43883264/160720067-efb3cc87-cbb6-4c44-839c-7c334fed54ee.png)
-
-## Auto Scaling Groups
-
-- When creating an Auto Scaling group - you need to specify the following:
-1. Launch config/template
-2. How many running instances you want auto-scaling to maintain at all times
-3. Min and max size of auto scaling group (scaling policies)
-4. Load Balancer Information
-
-![image](https://user-images.githubusercontent.com/43883264/164123945-7363eb64-bd90-4343-8a26-faacabbcda4c.png)
-
-This is how to setup Auto Scaling Custom Metrics
-![image](https://user-images.githubusercontent.com/43883264/164124045-0d9e8da3-e79d-4305-b6e3-242ada21413d.png)
-##### NOTE: If Min number of instances is set to 0 - auto scaling will not spawn any instances and will terminate any running instances as well
-
-## Specifying an Application load balancer target group
-- If you want to load balance traffic to instances in your group - just plug in the name of the ALB when creating the auto scaling group. New instances will automatically be added to the ALB group
-
-## Health checks against application instances
-- By default EC2 health checks on an instance are used to determine the health of the instance - you can also integrate CloudWatch, CloudTrail health checks. 
-
-- If you are using an ALB group you can also configure health checks to the application target group
-
-## Auto Scaling Groups - Things to know
-![image](https://user-images.githubusercontent.com/43883264/164124760-2d03a7da-0259-4708-bc94-3040e40266cc.png)
 
 ## Auto Scaling Options
 ### Manual Scaling
