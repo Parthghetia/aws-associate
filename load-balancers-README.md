@@ -106,6 +106,7 @@ With ALBs you could actually program the traffic. So we created another target g
 ![image](https://user-images.githubusercontent.com/43883264/164122595-29f9a982-96ec-43ed-94e2-c1cce7c0497d.png)
   
 - For ALBs
+
 ![image](https://user-images.githubusercontent.com/43883264/164122639-9856ad2e-0f31-4539-9ac4-5170e84c7739.png)
 
 ##### NOTE: Connection draining/Deregistration delay - this is basically the time to complete "in-flight requests while the instance is de-registering or unhealthy
