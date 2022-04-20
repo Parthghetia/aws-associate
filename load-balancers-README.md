@@ -59,11 +59,13 @@ With ALBs you could actually program the traffic. So we created another target g
   
 ### Network Load Balancer - Hands on
  - Its all the same there is no much difference in the hands on here. Same stuff. Just that you can assign your own Elastic IP if any within the config page
+  
   ![image](https://user-images.githubusercontent.com/43883264/164117521-cce8fb37-60fd-45e2-bdce-d13a0941ee79.png)
  - Remember you always need a security group
 
 ### Gateway Load Balancer
 - It's basically/mostly used for Network Virtual Security appliances like Firewalls and IDS like so
+  
   ![image](https://user-images.githubusercontent.com/43883264/164118010-78fc3970-17b5-443a-bc17-f704601f58f9.png)
 - Uses the GENEVE protocol on port 6081
 - Target Groups could be EC2 instances or private IPs
@@ -72,6 +74,7 @@ With ALBs you could actually program the traffic. So we created another target g
 - This is important to know in cases where the application login gets timed out. Or a connection gets reset. This is where you need to enable this
 
 ![image](https://user-images.githubusercontent.com/43883264/164119272-dd932ed2-00b9-4d3d-a428-e2a7d91f517a.png)
+  
 ![image](https://user-images.githubusercontent.com/43883264/164119332-f57aa1f4-83fe-44eb-84e9-2454eccf74cb.png)
 
 - This can be changed in the target group like so:
@@ -80,6 +83,29 @@ With ALBs you could actually program the traffic. So we created another target g
 ![image](https://user-images.githubusercontent.com/43883264/164119509-a6f24cb3-47ee-4fa8-bed0-770bde8419be.png)
 
 **How to check cookies on your browser and when it expires once it is set:**
+  
 ![image](https://user-images.githubusercontent.com/43883264/164119646-0ade42ad-6cb7-4586-8a19-539e2b348615.png)
 
+
+## Cross Zone Load Balancing
+![image](https://user-images.githubusercontent.com/43883264/164120073-f3d9d807-4f68-4721-bda4-2f6a44a87344.png)
+![image](https://user-images.githubusercontent.com/43883264/164120690-5989f54a-f5d9-49f1-9a35-a9699432e995.png)
+
+#### How to enable cross-zone load balancing on the LB
+![image](https://user-images.githubusercontent.com/43883264/164120742-fe532140-593e-404c-a873-568d938f2e24.png)
+
   
+## Load Balancer - SSL certificates
+![image](https://user-images.githubusercontent.com/43883264/164121753-37fd8ac8-105f-40d1-a1b3-97cb3a98a87c.png)
+
+### Server Name Indication in SSL certs
+![image](https://user-images.githubusercontent.com/43883264/164121946-996cd7be-bf9b-4ff6-ac39-f063069fe1a7.png)
+
+- SNI solves the problem of loading multiple SSL certs onto one web-server (to serve multiple websites). This is a newer protocol that requires the client to specify the hostname of the target server in initial handshake.
+- CLB supports only one SSL cert can be configured within the LB as below:
+![image](https://user-images.githubusercontent.com/43883264/164122595-29f9a982-96ec-43ed-94e2-c1cce7c0497d.png)
+  
+- For ALBs
+![image](https://user-images.githubusercontent.com/43883264/164122639-9856ad2e-0f31-4539-9ac4-5170e84c7739.png)
+
+##### NOTE: Connection draining/Deregistration delay - this is basically the time to complete "in-flight requests while the instance is de-registering or unhealthy
