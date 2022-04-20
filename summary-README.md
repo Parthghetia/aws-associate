@@ -25,12 +25,6 @@
     - [Built-in insights](#built-in-insights)
   - [Billing in AWS](#billing-in-aws)
   - [Creating a budget and an alert for budget limits](#creating-a-budget-and-an-alert-for-budget-limits)
-  - [Auto Scaling Options](#auto-scaling-options)
-    - [Manual Scaling](#manual-scaling)
-  - [Dynamic scaling policies](#dynamic-scaling-policies)
-    - [1. Simple Scaling Policies](#1-simple-scaling-policies)
-    - [2. Step Scaling Policies](#2-step-scaling-policies)
-    - [3. Target Tracking Policies](#3-target-tracking-policies)
 # AWS-ASSOCIATE
 ## Known terms to be used
 - Lambda - Used to provide serverless application architecture. That means that network events like consumer requests can trigger the execution of a pre-defined code-based operation
@@ -226,39 +220,5 @@ Then just create a budget and follow the options. This is what was followed by m
 ![image](https://user-images.githubusercontent.com/43883264/162354079-dbc2143e-755b-41cb-b9b0-7c655b430c6d.png)
 - You could add an action as shown below, but don't forget you'd need a role so that the service can act accordingly. Like shutting down EC2 instances
 ![image](https://user-images.githubusercontent.com/43883264/162354170-10fb148d-0a60-4d59-b632-383c6a7fdfc7.png)
-
-
-## Auto Scaling Options
-### Manual Scaling
-As the name suggests
-## Dynamic scaling policies
-Auto scaling generates these metrics to ensure that EC2 instances always meet your demand:
-1. Aggregrate CPU util
-2. Average request count per target
-3. Avg network bytes in and out (2 diff metrics)
-
-You can always integrate new metrics from CloudWatch logs and use those. As an example, your application may generate logs that indicate how long it takes to complete a process. If the process takes too long, you could have Auto Scaling spin up new instances.
-
-Dynamic scaling policies work by monitoring a cloud watch alarm and scaling out by increasing desired capacity. There are three dynamic policies to choose from:
-
-### 1. Simple Scaling Policies
-Whenever, metrics rises, auto scaling increases capacity. That's it. How much capacity is increased depends on the three factors (as chosen by user) below:
-- ChangeInCapacity - increase by specified amount
-- ExactCapacity - to an exact number as specified - e.g to 6 when load increases
-- PercentChangeInCapacity - increase capacity by a percent of the current amount. 4 to 6 by 50 % (set by user)
-
-After auto scaling completes the adjustment - it waits a cooldown period before executing the policy again, even if the alarm is still breaching (300 sec by default)
-
-### 2. Step Scaling Policies
-If the demand on your app is rapidly increasing a simple scaling policy may not do the job. With step you can add instances, based on how much the aggregrate metric has increased above the threshold.
-
-E.g:
-![image](https://user-images.githubusercontent.com/43883264/161151772-ab87fce3-df49-490b-88b1-bc16772cca58.png)
-
-There is also a warm up time - basically time to be taken before taking into consideration the metrics of the newly added instances
-### 3. Target Tracking Policies
-If step scaling policies are too into the application, you could create target tracking policies. Basically, select a metric and a value and auto scaling will create a cloudWatch alarm and a scaling policy to adjust the number of instances to keep the metric near that target
-
-Also target tracking will scale in by deleting instances based on the target metric value. Warm up time can be specified too
 
 
