@@ -28,3 +28,10 @@ Cross AZ but similar region replication is free but different region has the sam
 ### RDS - Hands on
 ![image](https://user-images.githubusercontent.com/43883264/164579613-0b3d682c-9880-40a3-8d77-c9dfb4b2bf6d.png)
 ![image](https://user-images.githubusercontent.com/43883264/164579630-28e18786-9187-4728-8bc7-e02f34425404.png)
+![image](https://user-images.githubusercontent.com/43883264/164579839-b9e4a22f-81a5-4770-94ce-09fef3c920cf.png)
+![image](https://user-images.githubusercontent.com/43883264/164579880-ccbb843d-9c68-4423-b800-048731b9c4ac.png)
+
+**IN ADDITIONAL CONFIG**
+![image](https://user-images.githubusercontent.com/43883264/164579934-e71d5d56-0da8-449c-82d9-5e4bbb906101.png)
+![image](https://user-images.githubusercontent.com/43883264/164579958-2f375b6c-4520-40f7-8a8b-a4bf8cd430bc.png)
+
