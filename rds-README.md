@@ -56,3 +56,6 @@ Cross AZ but similar region replication is free but different region has the sam
 ![image](https://user-images.githubusercontent.com/43883264/164586968-291296ba-6433-4c0d-bcfa-9321fa4b2eda.png)
 
 **AURORA SECURITY IS SAME AS RDS
+
+## Aurora Hands On
+https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/learn/lecture/13528162#content
