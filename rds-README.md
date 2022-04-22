@@ -35,3 +35,24 @@ Cross AZ but similar region replication is free but different region has the sam
 ![image](https://user-images.githubusercontent.com/43883264/164579934-e71d5d56-0da8-449c-82d9-5e4bbb906101.png)
 ![image](https://user-images.githubusercontent.com/43883264/164579958-2f375b6c-4520-40f7-8a8b-a4bf8cd430bc.png)
 
+## RDS Security and Encryption
+#### AT REST ENCRYPTION
+- Encryption is defined at launch time and if the master is not encrypted, the read replicas cannot be encrypted.
+#### IN-FLIGHT ENCRYPTION
+![image](https://user-images.githubusercontent.com/43883264/164582850-7d3a5385-ec4d-4fd6-8f54-e24367c52951.png)
+#### How to encrypt and un-encrypted DB
+![image](https://user-images.githubusercontent.com/43883264/164583017-1db0af20-b52d-48ce-b037-e0283fea0625.png)
+
+## RDS - IAM Authentication
+![image](https://user-images.githubusercontent.com/43883264/164586047-9184ecd1-852e-40d2-94e9-3d6921213910.png)
+
+
+# Amazon Aurora
+![image](https://user-images.githubusercontent.com/43883264/164586418-a8118d2e-9764-4c6c-880a-a191c751a8d0.png)
+### Aurora High Availability (HA) and Read Scaling
+![image](https://user-images.githubusercontent.com/43883264/164586709-812e09e0-3f09-4ee9-8ff3-36d0544c8635.png)
+
+### Aurora DB cluster - High Level overview
+![image](https://user-images.githubusercontent.com/43883264/164586968-291296ba-6433-4c0d-bcfa-9321fa4b2eda.png)
+
+**AURORA SECURITY IS SAME AS RDS
