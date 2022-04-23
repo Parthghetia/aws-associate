@@ -59,3 +59,43 @@ Cross AZ but similar region replication is free but different region has the sam
 
 ## Aurora Hands On
 https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/learn/lecture/13528162#content
+
+## Aurora Advanced Concepts
+#### Aurora Custom Endpoints
+![image](https://user-images.githubusercontent.com/43883264/164947328-8b05a996-a3f1-4d86-87a4-ce196edc9a26.png)\
+
+#### Aurora Serverless
+![image](https://user-images.githubusercontent.com/43883264/164947346-7b110e74-7bfa-4f4e-8ca9-7f14d336c9be.png)
+
+#### Aurora Multi-Master
+![image](https://user-images.githubusercontent.com/43883264/164947363-930b1e6b-b605-4781-9d87-92a3a22ef6f9.png)
+
+#### Global Auroras
+![image](https://user-images.githubusercontent.com/43883264/164947391-6b473a56-e9d3-454b-9f7a-49a8cc1a686d.png)
+
+#### Aurora Machine Learning
+![image](https://user-images.githubusercontent.com/43883264/164947423-69839407-f835-4586-a167-e6279af22c2b.png)
+
+
+# Amazon ElastiCache
+- ElastiCache is used to get managed Redis or Memcached. Caches are in-memory DBs with really high perf and low latency.
+- A cache will help reduce load of the DB for read intensive workloads
+- Idea is that normal repetitive queries in a DB are stored here and the DB is not queried for all the queries. Only newer queries would go to the DB
+- This helps make your app stateless
+- ElastiCache needs alot of change in the application code to have this enabled
+### Solution Architecture around using ElastiCache - Database Cache
+![image](https://user-images.githubusercontent.com/43883264/164947535-cce44c74-98ee-479b-8c8c-80d77d01de93.png)
+
+### Solution Architecture around using ElastiCache - User Session Store
+![image](https://user-images.githubusercontent.com/43883264/164947578-9ea309e0-a164-43cf-8d13-1bcebb9169a2.png)
+##### Side Note - Redis vs Memcached
+![image](https://user-images.githubusercontent.com/43883264/164947636-71f0d004-15ee-491f-8089-db04281dfe07.png)
+Basically Memcached is used when you dont care much about your data but need speed, but with Redis you really do care about storing your data
+
+### ElasticCache Hands On
+![image](https://user-images.githubusercontent.com/43883264/164947804-3f33ccf7-895a-4741-b73a-f9b36303a108.png)
+- Encryption was disabled when creating it, but just to show all the options we have i enabled it in the snap
+![image](https://user-images.githubusercontent.com/43883264/164947819-cbafa7bb-02e6-41d6-acff-dc68105f60e3.png)
+![image](https://user-images.githubusercontent.com/43883264/164947825-a23aff6a-0499-4321-9633-6f5c578d867b.png)
+
+
