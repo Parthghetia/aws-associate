@@ -99,3 +99,11 @@ Basically Memcached is used when you dont care much about your data but need spe
 ![image](https://user-images.githubusercontent.com/43883264/164947825-a23aff6a-0499-4321-9633-6f5c578d867b.png)
 
 
+### ElastiCache Cache Security
+![image](https://user-images.githubusercontent.com/43883264/164947861-6617d989-65d8-49f6-9038-71148f951785.png)
+
+### Patterns for ElastiCache
+![image](https://user-images.githubusercontent.com/43883264/164947894-ef733af8-898d-4cf4-9d21-a26b7e32d321.png)
+
+### ElastiCache - Redis Use Case
+![image](https://user-images.githubusercontent.com/43883264/164947937-01c78205-ca98-43b5-afb7-e4d133b132e9.png)
