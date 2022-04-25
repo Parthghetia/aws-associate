@@ -25,3 +25,53 @@
 - You should see 2 records in the hosted zone as below:
 ![image](https://user-images.githubusercontent.com/43883264/164948632-109c9743-556d-429b-a9f4-d41ebd0eada1.png)
 - The NS server above is the one that shows which are the servers that will give authoritative answer for the domain specified
+
+
+### Route 53 - Creating our first records
+![image](https://user-images.githubusercontent.com/43883264/164999673-25dca4d9-2c4c-40bf-ad6c-021cbbabb8e9.png)
+![image](https://user-images.githubusercontent.com/43883264/164999717-263ee2a3-33ca-4ba0-bdd2-97b69e9d1c04.png)
+If you go to the cloud shell and try to dig at the record created, it should route to the IP you specified as below:
+![image](https://user-images.githubusercontent.com/43883264/164999840-9a418931-d275-49be-be4e-c011ed8daad0.png)
+
+
+## Route 53 - EC2 Setup
+```bash
+#!/bin/bash
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+EC2_AVAIL_ZONE=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)
+echo "<h1>Hello World from $(hostname -f) in AZ $EC2_AVAIL_ZONE </h1>" > /var/www/html/index.html
+```
+- In the hands on below, 3 EC2 instances in different regions were created. And the user data above, would spin up an app that returns the region details as well.
+- An application load balancer is also created as shown below for the eu-central region only for all the hands on that follow
+![image](https://user-images.githubusercontent.com/43883264/165000638-6ecc1426-ced8-4b2f-8311-918f49b73867.png)
+
+## Route 53 - Time To Live - TTL
+![image](https://user-images.githubusercontent.com/43883264/165000467-f69fe876-19ea-4457-add8-287c171bd88c.png)
+
+When you do a dig, it shows in the output what is the TTL of the DNS query you did as below
+![image](https://user-images.githubusercontent.com/43883264/165000546-bb589672-a463-4fd1-8be0-62ec5cb9ad1c.png)
+
+If you even change the value, for the TTL specified, the value will still keep hitting the old DNS till it cached, until the timer runs out
+
+## Route 53 - CName vs Alias
+![image](https://user-images.githubusercontent.com/43883264/165001467-1e5c47c9-439d-4ec8-9771-ffe6aab27eb7.png)
+
+#### Route 53 - Alias Records
+- This basically maps a hostname to an AWS resource as shown in diag below:
+![image](https://user-images.githubusercontent.com/43883264/165002025-b8a96dfc-a09f-4b46-882c-638a641ebc4d.png)
+- However, unlike CNAME it can be used for the top node of a DNS namespace (Zone Apex) e.g example.com
+- Alias record is always A/AAAA for AWS resources and you cannot set the TTL
+- Alias record targets:
+![image](https://user-images.githubusercontent.com/43883264/165002403-901d4d1a-22e5-4a8a-833a-262112988d4a.png)
+### CNAME Hands On
+![image](https://user-images.githubusercontent.com/43883264/165002430-17edb029-3b4b-4bf8-a7b6-c59469b840c3.png)
+- Because we are using an ALB above we can also create an alias record for the same action as below:
+![image](https://user-images.githubusercontent.com/43883264/165002517-8833bd28-5943-42fb-9fa7-789da9cb789b.png)
+- Trying to create a CNAME for the Zone Apex does not work as below
+![image](https://user-images.githubusercontent.com/43883264/165002590-6741d44f-8123-45ef-b2d4-51ad60548c5c.png)
+- But for an alias it works:
+![image](https://user-images.githubusercontent.com/43883264/165002611-0adc5500-8418-4224-9b83-7a24a88da0fe.png)
+
