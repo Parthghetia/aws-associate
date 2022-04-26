@@ -31,6 +31,7 @@
 ![image](https://user-images.githubusercontent.com/43883264/164999673-25dca4d9-2c4c-40bf-ad6c-021cbbabb8e9.png)
 ![image](https://user-images.githubusercontent.com/43883264/164999717-263ee2a3-33ca-4ba0-bdd2-97b69e9d1c04.png)
 If you go to the cloud shell and try to dig at the record created, it should route to the IP you specified as below:
+
 ![image](https://user-images.githubusercontent.com/43883264/164999840-9a418931-d275-49be-be4e-c011ed8daad0.png)
 
 
