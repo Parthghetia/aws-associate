@@ -75,3 +75,37 @@ If you even change the value, for the TTL specified, the value will still keep h
 - But for an alias it works:
 ![image](https://user-images.githubusercontent.com/43883264/165002611-0adc5500-8418-4224-9b83-7a24a88da0fe.png)
 
+
+## Route 53 - Routing Policies
+- DNS does not route any traffic, it only responds to queries
+- Route 53 supports the following routing policies
+![image](https://user-images.githubusercontent.com/43883264/165200241-4f53541d-68c8-431d-a80a-b39a66be0f5e.png)
+
+#### Routing Policy - Simple
+![image](https://user-images.githubusercontent.com/43883264/165200461-d546f49e-5b2f-4a9c-a1d6-b9355fa2dc89.png)
+
+#### Routing Policies - Weighted
+![image](https://user-images.githubusercontent.com/43883264/165200954-9cf4e44a-7a89-4639-a41a-19311c361351.png)
+![image](https://user-images.githubusercontent.com/43883264/165200979-55bd4a49-052c-4a42-bb8e-d24c943ffcbc.png)
+** Hands on**
+![image](https://user-images.githubusercontent.com/43883264/165201098-2ba1fba2-a831-4753-b21e-fec130c83494.png)
+![image](https://user-images.githubusercontent.com/43883264/165201167-e5da5ec8-280e-4077-b57a-8379679db35e.png)
+
+#### Routing Policies - Latency-Based
+![image](https://user-images.githubusercontent.com/43883264/165202996-c75fec76-79c9-435c-b988-391932b0e439.png)
+![image](https://user-images.githubusercontent.com/43883264/165203116-93fe3ab4-fb93-4737-bd6b-2d8ecfa92637.png)
+
+## Route 53 - Health Checks
+
+![image](https://user-images.githubusercontent.com/43883264/165212453-47922539-611a-4644-8456-c7b9da4213f5.png)
+
+### How to monitor an endpoint using health checks
+![image](https://user-images.githubusercontent.com/43883264/165212782-8b1df687-a2c3-46ad-8766-81d129f55484.png)
+### Route 53 - Calculated Health Checks
+![image](https://user-images.githubusercontent.com/43883264/165213123-7e938df6-498c-40f3-91c4-96d3a203d0dc.png)
+
+### Route 53 - Health Checks on Private Hosted Zones
+![image](https://user-images.githubusercontent.com/43883264/165213320-6c77bd58-72f9-4a28-8397-8e9132792429.png)
+
+Its a common use case mostly
+
