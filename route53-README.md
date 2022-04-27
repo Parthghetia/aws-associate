@@ -153,6 +153,7 @@ Its a common use case mostly
 ![image](https://user-images.githubusercontent.com/43883264/165466178-f5c7e0ea-4067-4efa-be9e-10b181ed49e5.png)
 
 A simple dig returns all the endpoints
+
 ![image](https://user-images.githubusercontent.com/43883264/165466337-9919c2e2-9bbe-426e-a7b4-a0ab1fbfb5db.png)
 
 #### Using a 3rd Party Domain Registrar like GoDaddy
