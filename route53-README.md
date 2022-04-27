@@ -110,3 +110,51 @@ If you even change the value, for the TTL specified, the value will still keep h
 
 Its a common use case mostly
 
+### Route 53 - Health checks - Hands on
+![image](https://user-images.githubusercontent.com/43883264/165460153-5ced866a-4ef6-461d-8b9a-8e69f8d3c61c.png)
+![image](https://user-images.githubusercontent.com/43883264/165460375-8a55c749-dc2b-403c-8a5c-e59acdc75fc0.png)
+![image](https://user-images.githubusercontent.com/43883264/165460674-f8ca1624-bce5-4067-8cf0-0d4df9d67253.png)
+**Calculated Health Checks**
+![image](https://user-images.githubusercontent.com/43883264/165460993-baec2972-1ad6-45dc-8a02-739390d7e5f5.png)
+![image](https://user-images.githubusercontent.com/43883264/165461151-fe656fd0-e36e-4c59-bd0f-5209897acc4d.png)
+
+#### Routing Policies - Failover
+![image](https://user-images.githubusercontent.com/43883264/165461688-d12daebd-9c49-4910-a75e-f233025112ed.png)
+
+![image](https://user-images.githubusercontent.com/43883264/165461855-c204ee17-d7af-415f-8ed5-71ff4745861a.png)
+![image](https://user-images.githubusercontent.com/43883264/165461965-0726cb09-f463-412a-8a2e-b5020d4e065c.png)
+
+#### Routing Policies - Geolocation
+- Use cases: website localization, restrict content distribution, load balancing
+![image](https://user-images.githubusercontent.com/43883264/165462646-14da6dd0-bccf-4e76-99e2-eca6cdd4b6ba.png)
+
+![image](https://user-images.githubusercontent.com/43883264/165462945-c25dccbe-dbe8-4b8d-95a0-bdc4bdf8884b.png)
+
+#### Geoproximity Routing Policy
+![image](https://user-images.githubusercontent.com/43883264/165463552-e37547f5-f052-4515-806c-fa6ef061c9c7.png)
+
+![image](https://user-images.githubusercontent.com/43883264/165463443-7defbbc9-6f53-4521-9910-6e27134be020.png)
+![image](https://user-images.githubusercontent.com/43883264/165463939-30605a16-228a-4cb9-9a2e-713d56d35cf4.png)
+
+#### Route 53 Geoproximity and traffic flow hands on
+![image](https://user-images.githubusercontent.com/43883264/165464149-17ed84a0-b78a-4958-98d5-155ac5a3b5e3.png)
+![image](https://user-images.githubusercontent.com/43883264/165464224-88ddafa5-45cf-4d49-ab1e-10ec1e73b5d2.png)
+
+![image](https://user-images.githubusercontent.com/43883264/165464595-ba012652-5d60-4af2-a656-f35d8e8699da.png)
+![image](https://user-images.githubusercontent.com/43883264/165464737-92b1e494-86cc-4c4f-8cce-7dd98f0fb675.png)
+![image](https://user-images.githubusercontent.com/43883264/165464884-1a833bdb-a292-4401-8d6b-6320a4c2a588.png)
+- You can then create policy records for the traffic policy created as below
+![image](https://user-images.githubusercontent.com/43883264/165465198-e2cc2d85-0637-4848-bf7c-6d7a3763667e.png)
+![image](https://user-images.githubusercontent.com/43883264/165465427-69dc66e0-b507-4131-a03d-fd670105e13f.png)
+
+#### Routing Policies - Multi Value
+![image](https://user-images.githubusercontent.com/43883264/165465871-cc8263a8-a51b-4a68-8a46-961510527e4f.png)
+![image](https://user-images.githubusercontent.com/43883264/165466048-4a8dd7b1-8ae0-43ac-bca7-9d9626821254.png)
+![image](https://user-images.githubusercontent.com/43883264/165466178-f5c7e0ea-4067-4efa-be9e-10b181ed49e5.png)
+
+A simple dig returns all the endpoints
+![image](https://user-images.githubusercontent.com/43883264/165466337-9919c2e2-9bbe-426e-a7b4-a0ab1fbfb5db.png)
+
+#### Using a 3rd Party Domain Registrar like GoDaddy
+![image](https://user-images.githubusercontent.com/43883264/165466908-f0cd4eba-e2c6-4df1-81d9-90f5e6b4e1d5.png)
+![image](https://user-images.githubusercontent.com/43883264/165467076-11a1114d-6952-4488-a972-63beb448ad52.png)
