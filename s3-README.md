@@ -27,3 +27,6 @@
 ![image](https://user-images.githubusercontent.com/43883264/165490888-8fd2af57-003e-47db-a766-d16b70d3e50b.png)
 - To completely delete, you need to delete both the delete marker and the file like below (You need to type permanently delete after that):
 ![image](https://user-images.githubusercontent.com/43883264/165491148-89461c2d-a88f-449b-a1ec-f7da730bfb8b.png)
+
+## S3 Encryption for objects
+![image](https://user-images.githubusercontent.com/43883264/165500976-5caceac7-a982-4f20-8a8b-b83c6a7a7f4c.png)
