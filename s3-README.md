@@ -120,4 +120,62 @@ Thats because you have disabled public access, and you need to define a public p
 - CORS headers need to be enabled on the Cross Origin Bucket and not the original bucket
 ![image](https://user-images.githubusercontent.com/43883264/165673927-62f9e7e3-fb30-4ad2-9803-d1c1cca602ce.png)
 
+- Remember CORS means different buckets
+
+### S3 CORS - Hands On
+- Creating a new bucket in a different region to start with
+In that bucket put an extra-page.html and use the code below to add this to the first bucket and fetch that extra page from the secondary bucket (code is self explanatory)
+```html
+<html>
+    <head>
+        <title>My First Webpage</title>
+    </head>
+    <body>
+        <h1>I love coffee</h1>
+        <p>Hello world!</p>
+    </body>
+
+    <img src="coffee.jpg" width=500/>
+
+    <!-- CORS demo -->
+    <div id="tofetch"/>
+    <script>
+        var tofetch = document.getElementById("tofetch");
+
+        fetch('http://demo-cors-bucket-parth.s3-website.us-east-2.amazonaws.com/extra-page.html')
+        .then((response) => { 
+            return response.text();
+        })
+        .then((html) => {
+            tofetch.innerHTML = html     
+        });
+    </script>
+</html>
+```
+- When you now refresh your static website, you won't see the extra page loading. But in the developer tools you'll see this:
+![image](https://user-images.githubusercontent.com/43883264/165862223-231ba28e-66fb-4d11-9427-2c9d786e4148.png)
+
+- You need to enable the header as in the error message on the second bucket (CORS bucket)
+![image](https://user-images.githubusercontent.com/43883264/165862295-d4572696-ad03-40f8-b29e-1da8e6a7d71a.png)
+- Add the JSON settings as below
+```json
+[
+    {
+        "AllowedHeaders": [
+            "Authorization"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "<url of first bucket with http://...without slash at the end>"
+        ],
+        "ExposeHeaders": [],
+        "MaxAgeSeconds": 3000
+    }
+]
+```
+![image](https://user-images.githubusercontent.com/43883264/165862639-c6ac3644-8235-4fa1-8cd5-35e3f69fc9e1.png)
+
+
 
