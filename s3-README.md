@@ -110,3 +110,14 @@ Thats because you have disabled public access, and you need to define a public p
 ![image](https://user-images.githubusercontent.com/43883264/165658057-61272a21-d99a-4649-b88e-da335e7a4279.png)
 ![image](https://user-images.githubusercontent.com/43883264/165658175-e6e5f279-25e1-4fc2-9814-6296d2092dc1.png)
 
+
+## S3 CORS - Cross Origin Resource Sharing
+- What is CORS?
+![image](https://user-images.githubusercontent.com/43883264/165673463-9e040baa-a50e-4003-88f0-be6c9e10a9f7.png)
+![image](https://user-images.githubusercontent.com/43883264/165673650-84294216-383d-467e-8c2b-bd5046cea081.png)
+
+**S3 CORS**
+- CORS headers need to be enabled on the Cross Origin Bucket and not the original bucket
+![image](https://user-images.githubusercontent.com/43883264/165673927-62f9e7e3-fb30-4ad2-9803-d1c1cca602ce.png)
+
+
