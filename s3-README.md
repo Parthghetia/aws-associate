@@ -178,4 +178,55 @@ In that bucket put an extra-page.html and use the code below to add this to the 
 ![image](https://user-images.githubusercontent.com/43883264/165862639-c6ac3644-8235-4fa1-8cd5-35e3f69fc9e1.png)
 
 
+## S3 MFA Delete
+- Things to know
+![image](https://user-images.githubusercontent.com/43883264/166009573-9818517c-225d-4e2a-97a4-44c00feeabd5.png)
+
+### S3 MFA - Hands on
+- Pre-req - set up a virtual MFA device first. As before in the security section
+```bash
+# generate root access keys
+aws configure --profile root-mfa-delete-demo
+
+# enable mfa delete
+aws s3api put-bucket-versioning --bucket mfa-demo-stephane --versioning-configuration Status=Enabled,MFADelete=Enabled --mfa "arn-of-mfa-device mfa-code" --profile root-mfa-delete-demo
+
+# disable mfa delete
+aws s3api put-bucket-versioning --bucket mfa-demo-stephane --versioning-configuration Status=Enabled,MFADelete=Disabled --mfa "arn-of-mfa-device mfa-code" --profile root-mfa-delete-demo
+```
+## S3 - Default Encryption vs Bucket Policies
+- The first way to enforce bucket encryption is to use policies
+![image](https://user-images.githubusercontent.com/43883264/166067361-8982d816-522f-4e23-be50-a0ab9bd2a7fa.png)
+- Another way is to use the default encryption option in S3:
+- ![image](https://user-images.githubusercontent.com/43883264/166067882-71259a34-41d4-4f9b-abe5-0daecbe9e792.png)
+- This could be overrid, when uploading a file in case you have another choice
+
+## S3 Access logs
+![image](https://user-images.githubusercontent.com/43883264/166068495-d9f6b8e6-e491-46b1-a2f2-7799168d3437.png)
+- S3 access logs: Warnings:
+![image](https://user-images.githubusercontent.com/43883264/166068610-53403e28-1eea-47b9-9bb5-7c074c8ffcfb.png)
+
+## S3 Access Logs Hands on
+- Create a logging bucket
+![image](https://user-images.githubusercontent.com/43883264/166068755-54a5a4b5-4a17-456a-a7df-d0a99649d66a.png)
+![image](https://user-images.githubusercontent.com/43883264/166068810-426c7063-79ad-4435-8ce9-3962120c3d1d.png)
+- The bucket policy for the logging bucket is updated as shown below. To allow the logging service to access your bucket
+![image](https://user-images.githubusercontent.com/43883264/166069265-397d0f58-100a-4b2b-9131-c0025669361c.png)
+
+- Now let's see the logs (takes hours):
+
+![image](https://user-images.githubusercontent.com/43883264/166069378-b1fc5d27-42fb-457c-9970-096156d18499.png)
+Click open above and then you can see the logs
+
+## S3 Replication (CRR - Cross Region Replication and SRR - Same Region Replication)
+![image](https://user-images.githubusercontent.com/43883264/166069909-ec1069fe-8e06-44bf-887b-39717ba4a3fb.png)
+![image](https://user-images.githubusercontent.com/43883264/166070003-2e856b4d-29d6-49c8-86e7-d0e52eb32086.png)
+
+## S3 Replication Hands On
+- Make sure versioning is enabled in both buckets. Settings on source bucket as below
+![image](https://user-images.githubusercontent.com/43883264/166070778-3d12ab5d-277f-4547-bc68-41f447b9d95d.png)
+![image](https://user-images.githubusercontent.com/43883264/166070839-642c2d92-f4ef-47e8-a34b-e97c753428e6.png)
+- If you enable this setting in the replication rules. Then the delete markers option needs to be enabled
+![image](https://user-images.githubusercontent.com/43883264/166071417-1a8a0ca5-b7b7-4f45-8b3a-adadff074583.png)
+**- However, you cannot replicate permanent deletions **
 
