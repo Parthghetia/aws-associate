@@ -103,3 +103,10 @@ You can easily generate this from the IAM menu - pretty straightforward
 To access the access-advisor. You gotta go to users and Access advisor like below:
 ![image](https://user-images.githubusercontent.com/43883264/162266736-c6965c58-82b3-44de-8937-88de3367933f.png)
 - Here you can even check the policies that are used to access the policies and you could actually get rid of non-used services
+
+### EXTRA STUFF
+## IAM Policy Hands On - Using the IAM Policy Simulator
+- You can also use the AWS Policy Generator Tool we used earlier. Reference to the end of S3 section. You can get to this by just googling it
+- You can then use the IAM policy simulator to test your policies like below. Google for IAM policy simulator|
+![image](https://user-images.githubusercontent.com/43883264/166001939-c1a07917-1763-49e9-be25-090b5631d95c.png)
+![image](https://user-images.githubusercontent.com/43883264/166002006-44d86aaf-37e0-43ab-9feb-61914c8e8199.png)
