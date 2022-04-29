@@ -232,3 +232,8 @@ AMIs is only available in one region. if you invoke the ID of an AMI from a diff
 ![image](https://user-images.githubusercontent.com/43883264/163629630-4a923a67-a662-4527-80ad-4ca5cf638f0b.png)
 
 You can then launch instances using your custom AMI. Saves time
+
+## EXTRAS - AWS EC2 Instance Metadata
+![image](https://user-images.githubusercontent.com/43883264/166004238-feeaa69c-79e3-4486-a5ce-23ddb67166e8.png)
+![image](https://user-images.githubusercontent.com/43883264/166006333-cf858b8f-3be6-415f-825f-0232e87993cb.png)
+- When you attach an instance to a role, the way it queries the URL above and gets the token (short-lived) and carries out the requests needed. 
