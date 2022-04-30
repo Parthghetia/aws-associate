@@ -318,4 +318,12 @@ You can now see the event notifications being generated now as below: (Make sure
 
 ## Amazon Athena - Hands On
 
+For Ref: https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/learn/lecture/13528368#content
+
+https://aws.amazon.com/premiumsupport/knowledge-center/analyze-logs-athena/
+
+## Glacier Vault Lock
+![image](https://user-images.githubusercontent.com/43883264/166090760-8726e5b5-d0b1-4d39-927c-dc455b68d3fa.png)
+## S3 Object Lock
+![image](https://user-images.githubusercontent.com/43883264/166090794-b8205973-e059-4771-8d1e-4ae784e2986b.png)
 
