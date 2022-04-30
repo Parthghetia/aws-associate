@@ -263,5 +263,59 @@ You can get the prices of all these classes here: https://aws.amazon.com/s3/pric
 ![image](https://user-images.githubusercontent.com/43883264/166087132-2ca0d719-6b1b-46d9-9a25-c0d42c1fed47.png)
 ![image](https://user-images.githubusercontent.com/43883264/166087189-5eeff945-d987-43d4-b041-b397275f9ce3.png)
 
+## S3 Lifecycle Rules
+#### Rules for moving between storage classes (Also available on the AWS website)
+![image](https://user-images.githubusercontent.com/43883264/166087466-d19cf2f3-a075-43a7-8706-450981e1459e.png)
+
+![image](https://user-images.githubusercontent.com/43883264/166087532-158f6f59-73af-4df8-bad3-74bbc719a44a.png)
+
+### Using Lifecycle Rules - Live Scenarios
+![image](https://user-images.githubusercontent.com/43883264/166087643-f0507006-eeb4-43d6-a398-2b32df7c7581.png)
+![image](https://user-images.githubusercontent.com/43883264/166087651-a9bdc856-00ba-475c-8d44-a9366c081215.png)
+
+## S3 Analytics - Storage Class Analysis
+![image](https://user-images.githubusercontent.com/43883264/166087759-46047913-6ae2-4e78-9d94-caaefdb02aaf.png)
+
+## S3 - Improving/Baseline Performance
+![image](https://user-images.githubusercontent.com/43883264/166087828-b4c6019c-9789-4a76-abd2-20c90d329196.png)
+![image](https://user-images.githubusercontent.com/43883264/166087971-b8711043-decb-4322-8a12-16292a995db5.png)
+![image](https://user-images.githubusercontent.com/43883264/166088047-db814c3b-a13e-493f-bf54-70654c6cb014.png)
+
+#### S3 - KMS Limitation
+![image](https://user-images.githubusercontent.com/43883264/166087916-51f1501f-1226-41f4-accc-9276858e3ef9.png)
+
+## S3 Select and Glacier Select
+![image](https://user-images.githubusercontent.com/43883264/166088832-83f5a033-5281-4239-b6d6-a89915813995.png)
+
+## S3 Event Notifications
+![image](https://user-images.githubusercontent.com/43883264/166088869-7143c91a-5e7a-4f5a-a4fa-8e9201e8881b.png)
+- Using amazon event bridge
+![image](https://user-images.githubusercontent.com/43883264/166088921-3d442907-29f0-4847-ab11-4ee0a96a982f.png)
+
+### S3 Event Notification - Hands On
+- Go to bucket properties
+![image](https://user-images.githubusercontent.com/43883264/166088978-cf217b4c-9fbb-41ae-859a-64eae2e3d76b.png)
+![image](https://user-images.githubusercontent.com/43883264/166089034-fbedd0e1-4ad4-4cc7-9e55-bb4462446b5f.png)
+![image](https://user-images.githubusercontent.com/43883264/166089048-42280c2b-d821-49b4-8327-38c045d52771.png)
+
+For the events to be sent somewhere, you need to have one of the 3 destinations enabled as below. We will use SQS for this demo:
+![image](https://user-images.githubusercontent.com/43883264/166089065-700dd457-3209-4790-9247-0beccd8ee839.png)
+![image](https://user-images.githubusercontent.com/43883264/166089089-f834a3b5-6b22-49ad-a848-fd530b8c2162.png)
+![image](https://user-images.githubusercontent.com/43883264/166089092-8d68b301-4b02-4998-bc3b-c4aa473f2d4d.png)
+
+For the SQS Queue that is supposed to be created, you must specify a policy that will allow anyone to send a message to the SQS service which was created and attached as below using AWS policy generator:
+![image](https://user-images.githubusercontent.com/43883264/166089416-00f57d1e-b61b-4e31-a1d3-c8bac3f52424.png)
+
+You can now see the event notifications being generated now as below: (Make sure to hit poll for messages
+
+![image](https://user-images.githubusercontent.com/43883264/166089500-f64641e7-0ea2-48ab-a0b1-ff832f637352.png)
+
+## S3 Requester Pays
+![image](https://user-images.githubusercontent.com/43883264/166089553-abe46a8b-3372-4c7b-8f0b-0ec9513f7994.png)
+
+## Amazon Athena
+![image](https://user-images.githubusercontent.com/43883264/166089595-4d96d860-59e1-4839-88c6-5224f50f0fc9.png)
+
+## Amazon Athena - Hands On
 
 
