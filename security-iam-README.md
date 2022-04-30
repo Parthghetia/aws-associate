@@ -8,6 +8,8 @@
     - [Creating an IAM role hands on](#creating-an-iam-role-hands-on)
     - [Usage of an IAM roles in action](#usage-of-an-iam-roles-in-action)
   - [IAM Built-In Security Tools](#iam-built-in-security-tools)
+    - [EXTRA STUFF](#extra-stuff)
+  - [IAM Policy Hands On - Using the IAM Policy Simulator](#iam-policy-hands-on---using-the-iam-policy-simulator)
 
 
 # IAM

@@ -14,6 +14,10 @@
       - [How to terminate spot instances](#how-to-terminate-spot-instances)
       - [Spot Fleets](#spot-fleets)
   - [EC2 Instance Types](#ec2-instance-types)
+      - [1. General Purpose](#1-general-purpose)
+      - [2. Compute Optimized](#2-compute-optimized)
+      - [3. Memory Optimized](#3-memory-optimized)
+      - [4. Storage Optimized](#4-storage-optimized)
     - [Configuring an environment for your instance](#configuring-an-environment-for-your-instance)
       - [NOTE:](#note)
     - [Configuring instance behaviour](#configuring-instance-behaviour)
@@ -38,6 +42,7 @@
   - [AMI](#ami)
     - [Creating a Private/Custom AMI from an EC2 instance](#creating-a-privatecustom-ami-from-an-ec2-instance)
     - [Custom AMI Hands On](#custom-ami-hands-on)
+  - [EXTRAS - AWS EC2 Instance Metadata](#extras---aws-ec2-instance-metadata)
 
 # EC2
 ### EC2 instances

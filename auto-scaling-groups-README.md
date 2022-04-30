@@ -1,3 +1,18 @@
+- [LAB](#lab)
+  - [Creating a launch template](#creating-a-launch-template)
+  - [Auto Scaling Groups](#auto-scaling-groups)
+        - [NOTE: If Min number of instances is set to 0 - auto scaling will not spawn any instances and will terminate any running instances as well](#note-if-min-number-of-instances-is-set-to-0---auto-scaling-will-not-spawn-any-instances-and-will-terminate-any-running-instances-as-well)
+  - [Auto Scaling Groups - Things to know](#auto-scaling-groups---things-to-know)
+    - [Auto Scaling Groups - Hands on](#auto-scaling-groups---hands-on)
+  - [Auto Scaling Options](#auto-scaling-options)
+    - [Manual Scaling](#manual-scaling)
+  - [Dynamic scaling policies](#dynamic-scaling-policies)
+  - [Predictive Scaling](#predictive-scaling)
+    - [Scaling Cooldown](#scaling-cooldown)
+  - [Scaling policies - Hands on](#scaling-policies---hands-on)
+  - [ASG Termination Policy](#asg-termination-policy)
+
+
 ## EC2 Auto Scaling
 EC2 auto scaling uses either *Launch Configuration* or *Launch Template* to automatically configure the instances that it launches
 

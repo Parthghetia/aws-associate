@@ -1,3 +1,18 @@
+- [High Availability](#high-availability)
+  - [Load Balancing](#load-balancing)
+  - [Classic Load Balancers](#classic-load-balancers)
+  - [Application Load Balancer](#application-load-balancer)
+    - [Application Load Balancer - Hands On](#application-load-balancer---hands-on)
+  - [Network Load Balancer](#network-load-balancer)
+    - [Network Load Balancer - Hands on](#network-load-balancer---hands-on)
+    - [Gateway Load Balancer](#gateway-load-balancer)
+  - [Sticky Sessions in Load Balancers](#sticky-sessions-in-load-balancers)
+  - [Cross Zone Load Balancing](#cross-zone-load-balancing)
+      - [How to enable cross-zone load balancing on the LB](#how-to-enable-cross-zone-load-balancing-on-the-lb)
+  - [Load Balancer - SSL certificates](#load-balancer---ssl-certificates)
+    - [Server Name Indication in SSL certs](#server-name-indication-in-ssl-certs)
+        - [NOTE: Connection draining/Deregistration delay - this is basically the time to complete "in-flight requests while the instance is de-registering or unhealthy](#note-connection-drainingderegistration-delay---this-is-basically-the-time-to-complete-in-flight-requests-while-the-instance-is-de-registering-or-unhealthy)
+
 
 # High Availability
 - This in AWS means running your application/system in at least 2 DCs (- AZs)
