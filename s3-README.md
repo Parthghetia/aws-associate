@@ -230,3 +230,38 @@ Click open above and then you can see the logs
 ![image](https://user-images.githubusercontent.com/43883264/166071417-1a8a0ca5-b7b7-4f45-8b3a-adadff074583.png)
 **- However, you cannot replicate permanent deletions **
 
+## S3 Pre-Signed URLS
+![image](https://user-images.githubusercontent.com/43883264/166086731-fb4dcf9a-e2b9-4d8a-b2b0-a60ee3ac6a40.png)
+### S3 Pre-Signed URLS - Hands On
+![image](https://user-images.githubusercontent.com/43883264/166086799-5cad0786-8447-4f0e-a61a-a35ce8b91f50.png)
+![image](https://user-images.githubusercontent.com/43883264/166086830-9b28b514-d4d6-40b8-b8f0-a6e98fb4bc7e.png)
+
+## S3 Storage Classes
+![image](https://user-images.githubusercontent.com/43883264/166086861-d0cbe905-c250-4b2a-9197-0e7ad117a384.png)
+
+### S3 Standard - General Purpose
+![image](https://user-images.githubusercontent.com/43883264/166086907-6fdbecc7-9d43-4a88-8e29-40c0ddd60f5d.png)
+
+### S3 Infrequent Access
+![image](https://user-images.githubusercontent.com/43883264/166086950-d1356554-95dc-4d47-91e1-a3f22df2a21c.png)
+
+### S3 Glacier Storage Classes
+![image](https://user-images.githubusercontent.com/43883264/166086985-c2f7bd56-5791-4e23-a9b0-1eb02ccf6d30.png)
+
+### S3 Intelligent Tiering
+![image](https://user-images.githubusercontent.com/43883264/166086999-65d26b64-4ba1-493e-b896-0423beb306e3.png)
+
+You can get the prices of all these classes here: https://aws.amazon.com/s3/pricing/
+
+## S3 Storage Classes - Hands On
+
+![image](https://user-images.githubusercontent.com/43883264/166087057-1b586b2a-0f19-4856-a43a-df1dbfc2fd23.png)
+
+- An object's storage class can be changed even after its uploaded under bucket properties
+- You can also automate the movement of files to different storage classes using Lifecycle Rules (Management Tab) as below:
+
+![image](https://user-images.githubusercontent.com/43883264/166087132-2ca0d719-6b1b-46d9-9a25-c0d42c1fed47.png)
+![image](https://user-images.githubusercontent.com/43883264/166087189-5eeff945-d987-43d4-b041-b397275f9ce3.png)
+
+
+
