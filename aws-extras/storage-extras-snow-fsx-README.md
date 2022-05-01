@@ -62,4 +62,17 @@ https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02
 Same extra options as above
 
 
+# Hybrid Cloud for Storage - AWS Storage Gateway
+![image](https://user-images.githubusercontent.com/43883264/166163782-ff0bd1fd-3f04-4314-87e9-b49066fa0973.png)
 
+### File Gateway
+![image](https://user-images.githubusercontent.com/43883264/166163856-f77075f9-e814-4e70-b783-2f34ea0e85ea.png)
+
+### Volume Gateway
+![image](https://user-images.githubusercontent.com/43883264/166163917-c5366315-de4d-4ea1-9c44-b76055cf9197.png)
+
+### Tape Gateway
+![image](https://user-images.githubusercontent.com/43883264/166163940-49677d1a-85e3-4393-93a4-6d9cfa90a405.png)
+
+### Storage Gateway - Hardware Appliance
+![image](https://user-images.githubusercontent.com/43883264/166163977-2570a565-66a4-4fcb-ba54-a37058f615af.png)
