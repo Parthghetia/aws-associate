@@ -51,11 +51,15 @@ https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02
 ![image](https://user-images.githubusercontent.com/43883264/166163487-594c074d-7162-4bf3-ab2f-bc6e0f6cb8aa.png)
 
 ### Amazon FSX - Hands On
+##### Windows File Server
 ![image](https://user-images.githubusercontent.com/43883264/166163581-ac087098-d996-4da0-8949-9cbc1e00e428.png)
 ![image](https://user-images.githubusercontent.com/43883264/166163646-1324f840-d117-43e7-b165-bd9d1543c7c9.png)
 ![image](https://user-images.githubusercontent.com/43883264/166163655-5edcb5f8-e2bb-41ec-87a4-e8cafdf124d9.png)
 
-
+##### FSx for Lustre
+![image](https://user-images.githubusercontent.com/43883264/166163683-839f8f00-9c37-4b27-b567-08cb781b3799.png)
+![image](https://user-images.githubusercontent.com/43883264/166163725-d471099b-6089-4f59-a53c-3c122162e93f.png)
+Same extra options as above
 
 
 
