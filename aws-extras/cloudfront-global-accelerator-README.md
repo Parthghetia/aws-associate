@@ -61,6 +61,10 @@
 ![image](https://user-images.githubusercontent.com/43883264/166127144-286a970a-3e09-4b02-9bb8-b87d5817fcf6.png)
 
 # AWS Global Accelerator
+- The Problem that AWS global accelerator solves:
+![image](https://user-images.githubusercontent.com/43883264/166131244-f3e34abd-a882-4e51-a595-3a93b91f6562.png)
 
+## NOTE: Unicast vs Anycast IP Addresses
+- icast - one server has one IP address
 
 
