@@ -65,6 +65,35 @@
 ![image](https://user-images.githubusercontent.com/43883264/166131244-f3e34abd-a882-4e51-a595-3a93b91f6562.png)
 
 ## NOTE: Unicast vs Anycast IP Addresses
-- icast - one server has one IP address
+- Unicast - one server has one IP address
+- Anycast - all servers hold the same IP address and the client is routed to the nearest one
+
+-> Global accelerator uses the Anycast knowledge to work and this is how it works:
+![image](https://user-images.githubusercontent.com/43883264/166131314-deffc8dc-6324-457e-ad66-b085a2072ccc.png)
+
+#### AWS Global Accelerator - Features
+![image](https://user-images.githubusercontent.com/43883264/166131355-e9fb5f26-97d8-463d-bda2-be6f50e081cc.png)
+
+## AWS Global Accelerator vs CloudFront
+![image](https://user-images.githubusercontent.com/43883264/166131393-2baa7905-8069-4f85-b05c-a31d1378333b.png)
+
+## AWS Global Accelerator Hands On
+- Not free!!
+- Created a normal HTTP application on an EC2 instance in regions US-EAST-1 and AP-SOUTH-1 -> Security group to allow HTTP from anywhere. We then create the accelerator:
+- ![image](https://user-images.githubusercontent.com/43883264/166131505-38818860-e116-4730-a8ef-ffcf53415e9d.png)
+- Client affinity - this is sort of stickiness, if you want the same edge location be picked for the client
+![image](https://user-images.githubusercontent.com/43883264/166131529-101b0ffb-1fde-4c2a-9b71-6c73295ef2af.png)
+- Endpoint groups decide where you want traffic to be routed. The traffic dial is in % - in this case 100% of all traffic goes through there
+![image](https://user-images.githubusercontent.com/43883264/166131584-20d6d017-f669-4b27-b365-417bd77ff8ff.png)
+- You can configure the health checks in the above snap as below:
+![image](https://user-images.githubusercontent.com/43883264/166131595-0c6b111a-b63a-46db-b023-2ffb47e06913.png)
+
+- We then add another endpoint group and same health check as above
+![image](https://user-images.githubusercontent.com/43883264/166131607-c325e575-df1e-4e26-a2ad-93dc0bb94abb.png)
+- To both the Endpoint groups you can now add endpoints:
+![image](https://user-images.githubusercontent.com/43883264/166131624-5472cbad-89a1-42b3-9841-7943e9edc5e2.png)
+
+- Accelerator is ready
+![image](https://user-images.githubusercontent.com/43883264/166131652-9c5ed9f0-fe79-4880-b00d-6b01ae59e600.png)
 
 
