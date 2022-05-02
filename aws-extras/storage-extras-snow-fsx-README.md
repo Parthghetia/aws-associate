@@ -76,3 +76,19 @@ Same extra options as above
 
 ### Storage Gateway - Hardware Appliance
 ![image](https://user-images.githubusercontent.com/43883264/166163977-2570a565-66a4-4fcb-ba54-a37058f615af.png)
+
+### AWS Storage Gateway - Summary
+![image](https://user-images.githubusercontent.com/43883264/166175910-9cbec115-749a-44b2-a14a-54825f9bc79e.png)
+
+## Amazon FSx File Gateway
+![image](https://user-images.githubusercontent.com/43883264/166176088-b251da30-915a-478e-8b43-77ee0ad86133.png)
+
+### Storage Gateway - Hands On
+![image](https://user-images.githubusercontent.com/43883264/166176114-889b4f8d-758d-4241-92c9-f07e3dfa9208.png)
+![image](https://user-images.githubusercontent.com/43883264/166176146-3b915dbc-ad4c-4f29-810f-15ec4753909e.png)
+![image](https://user-images.githubusercontent.com/43883264/166176190-84a95a16-216d-4c31-a4d4-a0885568c70a.png)
+
+# AWS Transfer Family
+![image](https://user-images.githubusercontent.com/43883264/166176315-414b74d3-13da-4f22-95b5-10ef9570dc9e.png)
+- High level overview
+![image](https://user-images.githubusercontent.com/43883264/166176378-9b71dd05-4ef5-4315-8c70-eefe75ed5a30.png)
