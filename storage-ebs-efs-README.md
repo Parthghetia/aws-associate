@@ -131,3 +131,8 @@ Here is my example:
 ### EBS vs EFS summary
 ![image](https://user-images.githubusercontent.com/43883264/163859139-4c5b5636-953a-4108-8272-0e3b716a3d62.png)
 ![image](https://user-images.githubusercontent.com/43883264/163859667-356e106a-cb77-4855-9c3e-a204facc5088.png)
+
+## Storage - All AWS Options - Summary
+- Reference - aws-extras - for other AWS storage options
+![image](https://user-images.githubusercontent.com/43883264/166176668-e4639672-8083-4146-b8dc-cd7b63651eaf.png)
+
