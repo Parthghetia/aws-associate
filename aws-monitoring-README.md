@@ -43,4 +43,43 @@ https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-data.html
 ![image](https://user-images.githubusercontent.com/43883264/166618126-37fb6525-e6f1-467e-ad79-fa2dbe71ba20.png)
 
 ### CloudWatch logs - Hands On
+- Log groups, log streams, metric filters
+- Creating an alarm based on a metric filter
+- Create subscription filter for different components like elasticsearch, kinesis, lambda
+- Logs insights
+https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/learn/lecture/29322936#content
+
+## Cloudwatch logs for EC2
+![image](https://user-images.githubusercontent.com/43883264/166838462-db55ec80-29a7-4d5a-8481-1ded79ac923d.png)
+![image](https://user-images.githubusercontent.com/43883264/166838598-c72e0e7e-1ec5-44a5-bcd5-97686ae03819.png)
+
+## CloudWatch Alarms
+![image](https://user-images.githubusercontent.com/43883264/166838974-cb99a384-d380-4624-b191-6853eb113284.png)
+
+### CloudWatch Alarm Targets
+![image](https://user-images.githubusercontent.com/43883264/166839067-94c3e165-49a0-4b3e-8f4a-a131fd756840.png)
+
+#### CloudWatch Alarm - EC2 Instance Recovery
+![image](https://user-images.githubusercontent.com/43883264/166839331-3cb423c8-1612-498f-a643-4beef1366ed4.png)
+
+#### CloudWatch Alarms: Good to know
+- How to create a test alarm
+![image](https://user-images.githubusercontent.com/43883264/166839439-5214982f-84a0-4e64-9c02-c84fd851a1d3.png)
+
+##### CloudWatch Alarms - Hands On
+![image](https://user-images.githubusercontent.com/43883264/166840741-52432546-454b-4d64-97e2-fd36f30fd970.png)
+![image](https://user-images.githubusercontent.com/43883264/166840786-c4fe56fa-5b40-48b3-b990-c66ca5251947.png)
+![image](https://user-images.githubusercontent.com/43883264/166840896-ce33a6dd-d85f-4ad3-b01a-75149b041aa1.png)
+![image](https://user-images.githubusercontent.com/43883264/166840917-8aa8e951-acd1-4c87-9593-97414fd90c5d.png)
+![image](https://user-images.githubusercontent.com/43883264/166840989-f8c1e3ab-23b1-4385-9d92-33a3c864007f.png)
+![image](https://user-images.githubusercontent.com/43883264/166841003-59cb66f6-c0a8-442b-8ae0-afbcc30d57a8.png)
+
+You can then trigger a test alarm using this command to see if this is working and sending a notification to the SNS topic that you created
+```bash
+[cloudshell-user@ip-10-0-5-137 ~]$ aws cloudwatch set-alarm-state --alarm-name TerminateEC2InstanceOnAlarm --state-value ALARM --state-reason "Testing"
+[cloudshell-user@ip-10-0-5-137 ~]$ 
+```
+
+
+
 
