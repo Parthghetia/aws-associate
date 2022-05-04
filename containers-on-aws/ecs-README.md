@@ -54,7 +54,7 @@ Not so ideal, but this is how to create a service on an ECS cluster if ever you 
 ![image](https://user-images.githubusercontent.com/43883264/166612784-30eedfd1-b416-4698-b9b9-2b973890d296.png)
 
 ## Amazon ECR
-[image](https://user-images.githubusercontent.com/43883264/166612883-d0a1cd5b-1320-4e44-afc7-86f52202f02f.png)
+![image](https://user-images.githubusercontent.com/43883264/166612883-d0a1cd5b-1320-4e44-afc7-86f52202f02f.png)
 ![image](https://user-images.githubusercontent.com/43883264/166612903-618d1c4d-a0b7-4727-8bad-3ae94ff06ced.png)
 
 
