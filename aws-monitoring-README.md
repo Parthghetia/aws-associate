@@ -80,6 +80,15 @@ You can then trigger a test alarm using this command to see if this is working a
 [cloudshell-user@ip-10-0-5-137 ~]$ 
 ```
 
+## Amazon EventBridge
+![image](https://user-images.githubusercontent.com/43883264/166844886-4e9fbeb3-56f8-427d-8f19-2aedca59a640.png)
+
+### Amazon EventBridge - Schema Registry
+![image](https://user-images.githubusercontent.com/43883264/166845242-ecfbecb5-28fd-440e-b947-0edfc727a618.png)
+
+### Amazon EventBridge - Resource Policy - To allow events from another account/region
+![image](https://user-images.githubusercontent.com/43883264/166845534-a1401191-d82f-4cef-8102-ffbb9d83cdde.png)
+
 
 
 
