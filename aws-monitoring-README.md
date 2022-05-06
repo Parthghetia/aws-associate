@@ -89,6 +89,52 @@ You can then trigger a test alarm using this command to see if this is working a
 ### Amazon EventBridge - Resource Policy - To allow events from another account/region
 ![image](https://user-images.githubusercontent.com/43883264/166845534-a1401191-d82f-4cef-8102-ffbb9d83cdde.png)
 
+## Amazon EventBridge - Hands On
+- Default UI - to get familiar
+![image](https://user-images.githubusercontent.com/43883264/167041610-f8e1f9ed-f49b-4b4c-937b-56d985b65cdf.png)
+![image](https://user-images.githubusercontent.com/43883264/167042040-deba5846-a5b6-410f-969d-7a1a2d1fd9bb.png)
+- Creating an EventBus
+![image](https://user-images.githubusercontent.com/43883264/167042155-f24f3a72-5eea-4c60-8a81-e91520d48e93.png)
+- These are the event sources, and here are the partners and where they would be set up like Pagerduty
+![image](https://user-images.githubusercontent.com/43883264/167042306-4e06ca8b-fcf7-4a61-8a9a-8a486d3426a7.png)
+- So now all the events can be captured in eventBridge but you need to create some rules as below:
+![image](https://user-images.githubusercontent.com/43883264/167042413-f138b521-ae1e-4024-b18e-c5820e72710d.png)
+![image](https://user-images.githubusercontent.com/43883264/167042739-52fbaca4-4f7e-4d11-b7f1-c164dafd1fd8.png)
+![image](https://user-images.githubusercontent.com/43883264/167042753-209d3ba3-7a7d-4e2c-95ea-d68d88489c5b.png)
+![image](https://user-images.githubusercontent.com/43883264/167043452-9051c987-cd1b-44a2-966c-f05de5174a54.png)
 
+- Schema Registry
+![image](https://user-images.githubusercontent.com/43883264/167043908-93f17c24-ac08-4da8-859b-41fa69180e57.png)
+![image](https://user-images.githubusercontent.com/43883264/167043931-9f7d5543-d7f6-403a-ad88-ed1ddefa7bfb.png)
+
+
+# AWS CloudTrail
+![image](https://user-images.githubusercontent.com/43883264/167044348-6b6b40f6-60fa-4c3d-bd28-50791942bcfd.png)
+### CloudTrail High Level Overview
+![image](https://user-images.githubusercontent.com/43883264/167044384-c600a75a-d119-495e-b479-6139e0cebb26.png)
+
+### CloudTrail Events - Management and Data Events
+![image](https://user-images.githubusercontent.com/43883264/167044600-3b6a71f4-2e97-4539-b942-83a87baaaf6e.png)
+
+### CloudTrail Insights
+![image](https://user-images.githubusercontent.com/43883264/167044776-3f275de4-2adc-483b-b040-348835f59fd6.png)
+
+### CloudTrail Events Retention
+![image](https://user-images.githubusercontent.com/43883264/167044852-10dc7ac7-ec4f-480a-841f-26f14c2ba3f1.png)
+
+### CloudTrail Hands On
+- UI
+![image](https://user-images.githubusercontent.com/43883264/167044889-927988d8-6b43-4083-91b5-e30e45ac9026.png)
+- Event History
+![image](https://user-images.githubusercontent.com/43883264/167044927-74a3b4e4-b602-4063-bc4b-72e415461c3a.png)
+![image](https://user-images.githubusercontent.com/43883264/167044986-942d1de9-edd3-4ec2-a4a6-991b0a442ff8.png)
+![image](https://user-images.githubusercontent.com/43883264/167045026-5ea2ce46-01bd-462b-91ad-efc26aafcce0.png)
+
+- Create a Trail to capture more events - you get an option to send logs to cloudwatch as well
+![image](https://user-images.githubusercontent.com/43883264/167045647-30de9867-ce50-4b9d-9490-0d51a884e600.png)
+![image](https://user-images.githubusercontent.com/43883264/167046108-0a5b8ec6-b055-4e69-8b9f-9dc6813b8747.png)
+
+- More stuff here https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/learn/lecture/26099064#content
+- Up you'll find how to view logs in Athena, and CloudWatch which is skipped in the snaps. After all its logs!!
 
 
