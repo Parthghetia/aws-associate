@@ -137,4 +137,22 @@ You can then trigger a test alarm using this command to see if this is working a
 - More stuff here https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/learn/lecture/26099064#content
 - Up you'll find how to view logs in Athena, and CloudWatch which is skipped in the snaps. After all its logs!!
 
+# AWS Config
+![image](https://user-images.githubusercontent.com/43883264/167053835-a37f2033-06c9-479c-8c84-f68493a0e775.png)
 
+### Config Rules
+![image](https://user-images.githubusercontent.com/43883264/167053972-16f14873-003f-4cdf-8c6d-d0dcb90e2580.png)
+![image](https://user-images.githubusercontent.com/43883264/167054224-9e88a59f-86fa-4b9c-95a9-063bf6751f62.png)
+
+### Config Rules - Remediations
+![image](https://user-images.githubusercontent.com/43883264/167054348-ec62037b-bd94-419d-9186-23eeec701f1d.png)
+
+### Config Rules - Notifications using EventBridge
+![image](https://user-images.githubusercontent.com/43883264/167054415-7dbe36c9-0722-461b-adcb-91b31b8aede8.png)
+
+### AWS Config - Hands On
+https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/learn/lecture/18078373#content
+
+### CloudWatch vs CloudTrail vs Config
+![image](https://user-images.githubusercontent.com/43883264/167231527-2af58df8-7527-43fd-b70d-cddc6806858a.png)
+![image](https://user-images.githubusercontent.com/43883264/167231566-4d17a280-c0b1-4bd1-b98e-325a1a38c729.png)
