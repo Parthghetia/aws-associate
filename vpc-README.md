@@ -52,3 +52,7 @@
 
 ### Bastion Hosts
 ![image](https://user-images.githubusercontent.com/43883264/167533662-45b60391-902f-48bb-8392-d57358776556.png)
+
+- So the public instance above, we will now treat it is a bastion host. And we will create an instance in the private subnet with the security groups set to hit only the security group of our public subnet
+![image](https://user-images.githubusercontent.com/43883264/167707602-e21aa7af-ceed-46fd-9fc4-da3f50a30938.png)
+- For this instance now, we cannot EC2 instance connect to it. So we need to have a different key pair to be able to go to the bastion host and connect to it. Don't forget to gen this before creating the instance. Tough to change later.
