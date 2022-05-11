@@ -83,6 +83,21 @@
 ![image](https://user-images.githubusercontent.com/43883264/167917761-7675e494-47cd-47c1-87b7-932dbe6fdfa8.png)
 
 ### VPC Reachability Analyzer - Hands On
+- Costs 10 cents per analysis
+![image](https://user-images.githubusercontent.com/43883264/167918208-817ffe4f-0d4b-44a6-837a-88c87f80e60b.png)
+![image](https://user-images.githubusercontent.com/43883264/167918381-52319b12-0348-47ba-a70e-9bcf27735a85.png)
+![image](https://user-images.githubusercontent.com/43883264/167918439-1f5820c1-2a4a-4577-8af8-0f1813c1f653.png)
+![image](https://user-images.githubusercontent.com/43883264/167918534-df720970-edfd-4b51-a36d-8cf4a8fd40ec.png)
 
+## VPC Peering
+![image](https://user-images.githubusercontent.com/43883264/167919237-ce181ae1-0f59-4f7c-938e-9193e70b42cb.png)
+![image](https://user-images.githubusercontent.com/43883264/167926208-f46a737a-d66a-41de-9f43-d53a590e8c1d.png)
+![image](https://user-images.githubusercontent.com/43883264/167926295-6bf7fa95-a0b3-450c-a927-f124fa00935b.png)
 
+### VPC Peering Hands On
+![image](https://user-images.githubusercontent.com/43883264/167926982-ed29c632-1fc1-4fcd-be95-808bdc6b2e84.png)
+- Gotta accept the pending requests
+![image](https://user-images.githubusercontent.com/43883264/167927094-db8b7602-f112-4fe6-839c-5fdde1eed7cc.png)
+- We need to now add routes on both VPCs to allow inter-VPC communication like so to hit the peering connection whenever going to the CIDR on the other VPC
+![image](https://user-images.githubusercontent.com/43883264/167927360-9a078b4a-97a3-4ef3-9024-948dba8aa42c.png)
 
