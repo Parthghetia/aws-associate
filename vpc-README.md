@@ -56,3 +56,33 @@
 - So the public instance above, we will now treat it is a bastion host. And we will create an instance in the private subnet with the security groups set to hit only the security group of our public subnet
 ![image](https://user-images.githubusercontent.com/43883264/167707602-e21aa7af-ceed-46fd-9fc4-da3f50a30938.png)
 - For this instance now, we cannot EC2 instance connect to it. So we need to have a different key pair to be able to go to the bastion host and connect to it. Don't forget to gen this before creating the instance. Tough to change later.
+
+### NAT Instances till DNS got lost, will add it later again
+
+## NACL and Security Groups
+- NACL are stateless and Security groups are stateful. So as SGs are stateful, once an inbound rule is already allowed, the outbound rule does not make a difference and traffic for that particular flow will be still allowed
+![image](https://user-images.githubusercontent.com/43883264/167911982-fa4d7aa0-810c-4a27-bc6c-356cc844f1fe.png)
+- What are NACLs
+![image](https://user-images.githubusercontent.com/43883264/167912309-6b78a4ad-6391-4a14-baa3-7410d13d180e.png)
+![image](https://user-images.githubusercontent.com/43883264/167912471-5d578730-6f47-4628-88b6-27785959a9b0.png)
+
+- Default NACL allows everything
+- Ephemeral Ports:
+   Whenever a client is trying to connect to a system it uses an ephemeral port to connect to the service like below:
+   ![image](https://user-images.githubusercontent.com/43883264/167913168-7e221963-27d3-44e0-835f-f5068387af1e.png)
+- NACL with Ephemeral Ports
+![image](https://user-images.githubusercontent.com/43883264/167913495-6d181eec-a338-4298-8b77-3bbf291c97ba.png)
+ Watch the bottom flow!!
+ - Difference between security groups and NACLs
+ ![image](https://user-images.githubusercontent.com/43883264/167913763-197a56b5-40c5-467e-8566-97a66025feab.png)
+
+### NACL and Security Groups Hands On
+- Pretty straightforward to be honest. Just the difference between stateful SG vs stateless NACL
+
+## VPC Reachability Analyzer
+![image](https://user-images.githubusercontent.com/43883264/167917761-7675e494-47cd-47c1-87b7-932dbe6fdfa8.png)
+
+### VPC Reachability Analyzer - Hands On
+
+
+
