@@ -101,3 +101,106 @@
 - We need to now add routes on both VPCs to allow inter-VPC communication like so to hit the peering connection whenever going to the CIDR on the other VPC
 ![image](https://user-images.githubusercontent.com/43883264/167927360-9a078b4a-97a3-4ef3-9024-948dba8aa42c.png)
 
+## VPC Endpoints
+![image](https://user-images.githubusercontent.com/43883264/167969716-fd6abf24-526b-4db8-80d4-b4a46eabc192.png)
+![image](https://user-images.githubusercontent.com/43883264/167970052-2d8687f4-8065-4a33-92e2-8f9846c548c3.png)
+![image](https://user-images.githubusercontent.com/43883264/167970068-f7b752f3-b74c-4cf3-874c-170b80704d1d.png)
+
+### Types of VPC Endpoints
+![image](https://user-images.githubusercontent.com/43883264/167970203-2b26b6b3-1442-4ffd-b3d3-7c1fa9f262b2.png)
+
+### VPC Endpoints Hands On
+- To test this, we are going to use our private instance. It currently needs creds to reach to s3
+```bash
+[ec2-user@ip-10-0-19-15 ~]$ aws s3 ls
+Unable to locate credentials. You can configure credentials by running "aws configure".
+[ec2-user@ip-10-0-19-15 ~]$ 
+```
+- Lets attach an IAM role to allow S3 read only access to our EC2 instance
+![image](https://user-images.githubusercontent.com/43883264/167971250-d7aec6a1-7e6a-4659-bde8-31f7d65abd85.png)
+- If you try to access the s3 buckets without a NAT instance, you will not be able to reach it. Why?? Because you are in the private subnet and we haven't allowed access to the S3 Service from the outside world. And for internal access you need a VPC endpoint
+- Now let's create an endpoint
+![image](https://user-images.githubusercontent.com/43883264/167972545-831d5a0a-ff27-4883-9a57-0a674a346284.png)
+![image](https://user-images.githubusercontent.com/43883264/167972554-dde49840-eaf6-4e76-b63e-b1f5d621ee02.png)
+- And now voila!!! It works
+``` bash
+aws s3 ls
+2022-04-30 23:25:49 demo-cloudfront-parth-v2
+```
+
+## VPC Flow Logs
+![image](https://user-images.githubusercontent.com/43883264/167973293-3f8eda38-8c41-4e7b-88ac-61483de897a2.png)
+
+### VPC Flow Logs Syntax
+![image](https://user-images.githubusercontent.com/43883264/167973419-06c42335-1ef5-47c0-8d11-615a6911597e.png)
+#### VPC Flow Logs Tshooting
+![image](https://user-images.githubusercontent.com/43883264/167973525-26999ae8-9c9f-49b4-9b66-e0b47d297c55.png)
+
+## VPC Flow Logs - Hands On
+https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/learn/lecture/13531264#content
+
+## AWS Site-to-Site VPN
+![image](https://user-images.githubusercontent.com/43883264/167975244-1b84654f-e4dc-4a05-bb23-9736c4a32c89.png)
+![image](https://user-images.githubusercontent.com/43883264/167975382-694640d2-06d8-4077-a9ad-cc3ef283d60e.png)
+
+#### Site-to-Site VPN Connections
+![image](https://user-images.githubusercontent.com/43883264/167975619-bdbcd7db-1862-4d7d-8987-56e43fbcff44.png)
+![image](https://user-images.githubusercontent.com/43883264/167975743-24a48b90-8b7e-491d-a154-19e0b5e3ef43.png)
+- Hands On https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/learn/lecture/28874574#content
+
+## Direct Connect (DX)
+![image](https://user-images.githubusercontent.com/43883264/167976422-5154d186-0160-43c1-885c-07f215322110.png)
+![image](https://user-images.githubusercontent.com/43883264/167976605-985797e7-432f-4df5-b012-4810b80d69cb.png)
+
+#### Direct Connect Gateway
+![image](https://user-images.githubusercontent.com/43883264/167976709-43300860-f214-4997-bbaf-3d34b687a661.png)
+
+#### Direct Connect - Encryption
+![image](https://user-images.githubusercontent.com/43883264/167976937-12da885e-4490-44c8-88d4-e0316317f2de.png)
+
+#### Direct Connect - Resiliency
+![image](https://user-images.githubusercontent.com/43883264/167977063-8b9213bc-d452-41ad-bc78-90add1dc3591.png)
+
+## AWS Private Link - VPC Endpoint Services - used to expose services in your VPC to other VPCs
+- These are the options we have
+![image](https://user-images.githubusercontent.com/43883264/167977178-80b70ecb-b8ee-4331-877f-9e9e6545cfeb.png)
+![image](https://user-images.githubusercontent.com/43883264/167977324-c83ee359-5657-419a-b62b-2c9bec310de4.png)
+
+#### AWS Private Link and ECS
+![image](https://user-images.githubusercontent.com/43883264/167977440-e701df9d-14d1-4a34-88f8-45ff1d1dcf6d.png)
+
+#### AWS Private Link VPC Endpoint Services - Hands On
+![image](https://user-images.githubusercontent.com/43883264/167977663-559b54a7-d622-4751-b658-f222efdffeaa.png)
+- On the other VPC, you would create an Endpoint as below and enter a private service FQDN that is exposed out
+![image](https://user-images.githubusercontent.com/43883264/167977754-4a1856e0-276b-4954-9ee3-fe8eb76ece79.png)
+
+## Transit Gateway
+- Network Topologies can become complicated real fast, thus the solution is transit gateway
+![image](https://user-images.githubusercontent.com/43883264/167978125-d56310e8-e15d-4e2c-942e-459ca894950f.png)
+- Another use case for Transit Gateway - is to increase bandwidth for the Site-to-Site VPN using ECMP
+![image](https://user-images.githubusercontent.com/43883264/167978333-31ddca3a-d115-44df-82ff-350779224503.png)
+
+- You can also share a direct connect between multiple accounts like so:
+![image](https://user-images.githubusercontent.com/43883264/167978535-d228daee-700e-48f8-8561-f32a62954c19.png)
+
+## VPC Traffic Mirroring
+![image](https://user-images.githubusercontent.com/43883264/167978772-03aa6e61-e718-4480-b2bc-fdf38ed372d8.png)
+
+## IPv6 for VPC
+![image](https://user-images.githubusercontent.com/43883264/167978977-bd26459a-f934-4b89-99e1-f08b6bac4c2b.png)
+
+- If IPv4 IPs run out in a subnet
+![image](https://user-images.githubusercontent.com/43883264/167979258-8dbf8198-d4c2-49b6-8d09-042dfb62237c.png)
+
+Enabling IPV6 access in a VPC -  Hands On - Not so important as V4 is always always needed
+https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/learn/lecture/26099596#content
+
+## Egress Only Internet Gateway
+![image](https://user-images.githubusercontent.com/43883264/167981741-bfe59c46-ddc6-4ae3-9dba-5613132776af.png)
+#### IPv6 Routing for Egress Only Internet Gateway
+![image](https://user-images.githubusercontent.com/43883264/167982076-d6d1f693-fc1b-40c7-a162-e74266d511b7.png)
+
+## VPC Summary
+![image](https://user-images.githubusercontent.com/43883264/167983092-1398ed23-24fb-4c73-9d99-e481d644e0f9.png)
+![image](https://user-images.githubusercontent.com/43883264/167983297-18d88d81-533f-4c68-bd8d-b4aeda3c3b8e.png)
+![image](https://user-images.githubusercontent.com/43883264/167983329-970e786c-a7fa-4670-b0a0-7dd31e90a499.png)
