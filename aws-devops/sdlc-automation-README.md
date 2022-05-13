@@ -34,3 +34,4 @@ https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-conditional-branc
 - Under the SNS topic don't forget to create a subscription to forward the events somewhere
 
 -> Let's see how to create a trigger 
+![image](https://user-images.githubusercontent.com/43883264/168332617-d2b2aa33-c26e-4073-8745-8bcef08834e9.png)
