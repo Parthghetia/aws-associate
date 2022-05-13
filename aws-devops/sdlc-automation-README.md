@@ -114,3 +114,7 @@ cache:
 What are these? These are basically the final products that are created from our CodeBuild run, As the docker containers are ephemeral, if you want to retrieve some files from the job run. You need to enable artifacts accordingly (You could also send them to s3)
 
 - Also note the cache files, this is to speed up your codeBuild process
+
+Here are some codebuild samples to use for specific use cases https://docs.aws.amazon.com/codebuild/latest/userguide/use-case-based-samples.html
+
+One to specifically look at is the docker build sample, for creating docker apps
