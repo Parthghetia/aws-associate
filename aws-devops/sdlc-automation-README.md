@@ -35,3 +35,82 @@ https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-conditional-branc
 
 -> Let's see how to create a trigger 
 ![image](https://user-images.githubusercontent.com/43883264/168332617-d2b2aa33-c26e-4073-8745-8bcef08834e9.png)
+
+-> The best thing to try out here, would be to create an event pattern in eventBridge. This would actually help trigger other more advanced functions like pipelines, codeBuild projects etc. More to come.
+
+## CodeCommit and AWS Lambda
+https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-notify-lambda.html
+
+## CodeBuild
+![image](https://user-images.githubusercontent.com/43883264/168378845-6ee20123-b42e-4f02-813f-3d57e779a70f.png)
+![image](https://user-images.githubusercontent.com/43883264/168379083-719de7dc-3d27-446e-9b2e-af650595bb0b.png)
+
+- We are going to build a codebuild project and we are going to test whether the index.html file has the world "Congratulations"
+
+![image](https://user-images.githubusercontent.com/43883264/168380040-7f30389b-8f64-4a0d-b8c1-15119a9a477c.png)
+![image](https://user-images.githubusercontent.com/43883264/168380085-49ebecde-a838-4f1c-9462-bae7a306cb2e.png)
+![image](https://user-images.githubusercontent.com/43883264/168380121-31e6a5cd-eba7-4777-b203-31414887da61.png)
+
+- We can now try to start the build. And thats it. It succeeded
+![image](https://user-images.githubusercontent.com/43883264/168380715-247a55e0-8456-4c3d-90cd-729fa329f4f8.png)
+![image](https://user-images.githubusercontent.com/43883264/168381309-eaafd81e-b59b-416b-9549-9d7d17351d1e.png)
+
+-> Let's take a look at the build-spec.yml file that was used to run the codeBuild (self explanatory)
+```yaml 
+version: 0.2
+
+phases: 
+    install:
+        runtime-versions:
+            nodejs: 10
+        commands:
+            - echo "installing something"
+    pre_build:
+        commands: 
+            - echo "we are in the pre build phase"
+    build:
+        commands:
+            - echo "we are in the build block"
+            - echo "we will run some tests"
+            - grep -Fq "Congratulations" index.html
+    post_build:
+        commands:
+            - echo "we are in the post build phase"
+ ```
+ 
+-> Here is a more complex build-spec.yml sourced from here. A good read before building a CodeBuild PL: https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html
+
+-> In this file something specific i want to note is artifacts
+```yaml
+artifacts:
+  files:
+    - location
+    - location
+  name: artifact-name
+  discard-paths: no | yes
+  base-directory: location
+  exclude-paths: excluded paths
+  enable-symlinks: no | yes
+  s3-prefix: prefix
+  secondary-artifacts:
+    artifactIdentifier:
+      files:
+        - location
+        - location
+      name: secondary-artifact-name
+      discard-paths: no | yes
+      base-directory: location
+    artifactIdentifier:
+      files:
+        - location
+        - location
+      discard-paths: no | yes
+      base-directory: location
+cache:
+  paths:
+    - path
+    - path
+```
+What are these? These are basically the final products that are created from our CodeBuild run, As the docker containers are ephemeral, if you want to retrieve some files from the job run. You need to enable artifacts accordingly (You could also send them to s3)
+
+- Also note the cache files, this is to speed up your codeBuild process
