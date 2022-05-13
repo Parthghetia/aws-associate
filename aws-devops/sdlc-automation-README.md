@@ -26,6 +26,11 @@ https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-conditional-branc
  "Resource": "arn:aws:codecommit:*:*:*",
  ```
  
- ## Creating Notification Rules and Triggers for your Repo
- ![image](https://user-images.githubusercontent.com/43883264/168181062-f3863b22-8e3c-45c1-8256-cb8a8fd5d50d.png)
+## Creating Notification Rules and Triggers for your Repo
+- This is how to create a notification rule
+![image](https://user-images.githubusercontent.com/43883264/168181062-f3863b22-8e3c-45c1-8256-cb8a8fd5d50d.png)
 ![image](https://user-images.githubusercontent.com/43883264/168181150-76e44ac5-118f-4701-864d-e43741f085ec.png)
+![image](https://user-images.githubusercontent.com/43883264/168192874-2a7306d2-9706-4073-92e4-8925d0340006.png)
+- Under the SNS topic don't forget to create a subscription to forward the events somewhere
+
+-> Let's see how to create a trigger 
