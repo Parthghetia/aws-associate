@@ -118,3 +118,25 @@ What are these? These are basically the final products that are created from our
 Here are some codebuild samples to use for specific use cases https://docs.aws.amazon.com/codebuild/latest/userguide/use-case-based-samples.html
 
 One to specifically look at is the docker build sample, for creating docker apps
+
+## CodeBuild Environment Variables
+- How to debug what environment variables have been passed. Same like env in gitlab/jenkins
+```yaml
+pre_build:
+    commands:
+      - printenv
+      - echo Logging in to Amazon ECR...
+```
+- For sensitive secrets you could save those variables as parameters or as secrets
+![image](https://user-images.githubusercontent.com/43883264/168448440-33a7cd88-9a33-429f-81f6-8fde03930b65.png)
+- You can then either check the parameters store in AWS Systems Manager or in Secrets Manager in AWS
+- Here is how to do it in the Parameter Store
+![image](https://user-images.githubusercontent.com/43883264/168449001-c1a093fe-e73c-48d9-bb8c-f11ed420c95c.png)
+
+![image](https://user-images.githubusercontent.com/43883264/168448661-0bd6dfaf-883f-48d3-96dc-a03af1bbe454.png)
+
+- Be sure that we need a policy attached to the service role of the codebuild:
+![image](https://user-images.githubusercontent.com/43883264/168449019-29bf80cb-4c04-424c-9776-e50cc68e47bf.png)
+
+-> Using the AWS Secrets Manager
+https://blog.shikisoft.com/define-environment-vars-aws-codebuild-buildspec/
