@@ -140,3 +140,61 @@ pre_build:
 
 -> Using the AWS Secrets Manager
 https://blog.shikisoft.com/define-environment-vars-aws-codebuild-buildspec/
+
+## CodeBuild Artifacts and S3
+-> This is basically to store any generated files/stuff out of your pipeline
+```yaml
+version: 0.2
+
+phases: 
+    install:
+        runtime-versions:
+            nodejs: 10
+        commands:
+            - echo "installing something"
+    pre_build:
+        commands: 
+            - echo "we are in the pre build phase"
+    build:
+        commands:
+            - echo "we are in the build block"
+            - echo "we will run some tests"
+            - grep -Fq "Congratulations" index.html
+    post_build:
+        commands:
+            - echo "we are in the post build phase"
+            
+artifacts:
+    files:
+      - '**/*'
+      - index.html #specifying a particular file
+    name: my-webapp-artifacts
+ ```
+-> Now its time to edit your code build project to reflect where to store the artifacts 
+![image](https://user-images.githubusercontent.com/43883264/168708585-daf39998-fef3-4154-a022-add219ef5dce.png)
+![image](https://user-images.githubusercontent.com/43883264/168708867-c7998cf1-33f6-4d4f-a934-84acc87d3a13.png)
+
+## Eventbridge, CloudWatch for CodeBuild
+-> Setup automatically, can be seen in cloudwatch after a codebuild project is run
+-> There is also an automatic dashboard created on Cloudwatch under the metrics tab. To see how long a pipeline has been run and how long it took and all those statistics that can be used to create alarms to avoid overpaying
+-> You can also invoke AWS to maybe run a pipeline automatically every hour using Eventbridge by creating a rule like so:
+![image](https://user-images.githubusercontent.com/43883264/168712256-f7e7f336-884a-4c86-aff8-c6123c394ab5.png)
+![image](https://user-images.githubusercontent.com/43883264/168712275-71cce1df-e07a-44e4-8429-9c40471051c8.png)
+![image](https://user-images.githubusercontent.com/43883264/168712326-cd1502ac-a406-47b1-92b1-2738c5bb0f6c.png)
+
+-> Moreover, you can create the rule to maybe run when let's say code is pushed to master or to a certain branch as well but more to come in the CodePipeline Section
+
+### Designing an AWS CodeCommit Pull Request Validation
+
+![image](https://user-images.githubusercontent.com/43883264/168713618-e7183c56-1926-48dd-bb04-88a15d75e95d.png)
+
+### IMPORTANT - Always read DevOps Blogs linked below - Most probably your issue is already solved by someone somewhere
+https://aws.amazon.com/blogs/devops/
+
+# AWS CodeDeploy 
+![image](https://user-images.githubusercontent.com/43883264/168713936-47095c18-f7b7-41b1-b817-0b795a2d9d2e.png)
+- How does it work?
+![image](https://user-images.githubusercontent.com/43883264/168714068-e6d2c8b4-e386-4501-bb33-97d205147f7f.png)
+-> Things to know about CodeDeploy
+![image](https://user-images.githubusercontent.com/43883264/168714200-0aedacf1-4443-469d-b43a-d7793cb0d4ed.png)
+
