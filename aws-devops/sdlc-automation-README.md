@@ -231,3 +231,12 @@ sudo service codedeploy-agent status
 ![image](https://user-images.githubusercontent.com/43883264/169866953-3a1c823d-d3bb-48d8-bf28-27533ca571a5.png)
 
 -> Now we need to create an actual deployment for this deployment group
+- Before we create a deployment, we need to create an s3 bucket. This will store our CodeBuild Code, we are going to use the cli in this case to make the s3 bucket
+- Here are the commands:
+```bash
+aws s3 mb s3://aws-devops-bucket --region us-east-1
+aws s3api put-bucket-versioning --bucket aws-devops-bucket --versioning-configuration Status=Enabled --region us-east-1
+```
+
+-> I will be now pushing codeDeploy files into the s3 bucket. The files are attached in this folder under the cicd-demo folder
+
