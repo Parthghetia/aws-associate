@@ -203,3 +203,31 @@ https://aws.amazon.com/blogs/devops/
 - While creating the instance, we need to remember that there has to be somewhere that the instance will fetch the code and artifacts from. In our case from s3 thus an IAM role needs to be attached to the instance to allow for this. Like so:
 ![image](https://user-images.githubusercontent.com/43883264/169860031-dcd06673-3b04-4340-ab47-92f6a86b366e.png)
 ![image](https://user-images.githubusercontent.com/43883264/169860122-df31fba9-15c5-4f97-b48e-861e35b1beb0.png)
+
+-> These are the commands that are necessary to deploy the cloudDeploy agent on your laptop
+```bash
+sudo yum update -y
+sudo yum install -y ruby wget
+wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto
+sudo service codedeploy-agent status
+```
+-> Let's tag our instances for use with codeDeploy later
+![image](https://user-images.githubusercontent.com/43883264/169865336-03fcbe49-4429-41ac-a461-9be17639c01b.png)
+
+-> Now let's create a CodeDeploy Application
+![image](https://user-images.githubusercontent.com/43883264/169865514-33c3083c-baea-4551-8529-8c5d5fe9db7e.png)
+
+-> We then need to create a deployment group, which is basically a set of EC2 instances. Like so
+![image](https://user-images.githubusercontent.com/43883264/169865727-54a969b0-a811-407c-8a55-b865f2a1f95b.png)
+- Notice how we need to create a service role for this, let's go and get this
+![image](https://user-images.githubusercontent.com/43883264/169865893-eb919b5d-64b4-463e-8db8-d7bf11d67b67.png)
+![image](https://user-images.githubusercontent.com/43883264/169865911-79fbfb2f-2b4a-476d-91c6-68f8c3f01acb.png)
+
+
+-> Now let's continue creating our deployment group
+![image](https://user-images.githubusercontent.com/43883264/169866930-280a3635-9af5-438e-ab80-6114dff5baa4.png)
+![image](https://user-images.githubusercontent.com/43883264/169866953-3a1c823d-d3bb-48d8-bf28-27533ca571a5.png)
+
+-> Now we need to create an actual deployment for this deployment group
