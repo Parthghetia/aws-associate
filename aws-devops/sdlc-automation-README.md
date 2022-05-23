@@ -198,3 +198,8 @@ https://aws.amazon.com/blogs/devops/
 -> Things to know about CodeDeploy
 ![image](https://user-images.githubusercontent.com/43883264/168714200-0aedacf1-4443-469d-b43a-d7793cb0d4ed.png)
 
+## AWS CodeDeploy Hands On
+- As CodeDeploy does not provision resources, we need to deploy EC2 instances ourselves
+- While creating the instance, we need to remember that there has to be somewhere that the instance will fetch the code and artifacts from. In our case from s3 thus an IAM role needs to be attached to the instance to allow for this. Like so:
+![image](https://user-images.githubusercontent.com/43883264/169860031-dcd06673-3b04-4340-ab47-92f6a86b366e.png)
+![image](https://user-images.githubusercontent.com/43883264/169860122-df31fba9-15c5-4f97-b48e-861e35b1beb0.png)
