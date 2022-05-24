@@ -284,5 +284,25 @@ hooks:
 
 #### CodeDeploy - Hooks And Environment Variables
 -> Here are different types of hooks you can use in different scenarios
-https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html
--> More details follow in the doc
+https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html 
+Look at this section  **List of lifecycle event hooks**
+-> More details follow in the doc, make sure to look at the matrix and note that anything involving block traffic needs a load balancer attached to your instances for it to work
+
+## CodeDeploy - EventBridge Integration - Hands On
+- Here is proper use case, where you want to send CodeDeploy Deployment failure notifications to slack
+![image](https://user-images.githubusercontent.com/43883264/169923735-c4d0a62a-343d-49db-9e8c-dcd544c9505a.png)
+![image](https://user-images.githubusercontent.com/43883264/169923863-ee5accdc-dcf8-4c35-bf01-e6dc9b6dc0e6.png)
+![image](https://user-images.githubusercontent.com/43883264/169923875-1044cbef-0008-4b6b-8abf-647590a797af.png)
+- You would then create a lambda function that sends this to slack
+![image](https://user-images.githubusercontent.com/43883264/169923904-339de11b-496a-4b3f-8416-ab8dc6ce7493.png)
+
+## CodeDeploy - Rollbacks
+-> If you look for your deployment group, you will be able to edit it and set rollbacks.
+![image](https://user-images.githubusercontent.com/43883264/169931231-8f207dbd-e15c-40e5-90ab-e6055347afbd.png)
+
+- Rollback when alarm thresholds are met -> for this you need to create an alarm first in CloudWatch. This could be triggered based on let's say CPU Util.
+![image](https://user-images.githubusercontent.com/43883264/169931615-709760f8-bb15-4c80-a30f-33d23a13a03a.png)
+
+## Register Code Deploy on an on-premise instance
+https://www.udemy.com/course/aws-certified-devops-engineer-professional-hands-on/learn/lecture/16050384#content
+
