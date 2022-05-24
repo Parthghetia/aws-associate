@@ -240,3 +240,49 @@ aws s3api put-bucket-versioning --bucket aws-devops-bucket --versioning-configur
 
 -> I will be now pushing codeDeploy files into the s3 bucket. The files are attached in this folder under the cicd-demo folder
 
+#### CodeDeploy - Deployment Configurations
+-> Under the in place deployment type, we have some strategies to look at, let's take a look (self-expl)
+![image](https://user-images.githubusercontent.com/43883264/169906104-eac6a2cc-e740-43ae-84da-3b364ec2ce73.png)
+
+-> Taking a look at the Blue/Green deployment type, this involves taking down current EC2 instances, and spawning new ones. This also involves having an ALB, which we did not spin up in the previous section
+
+### appspec.yml - Deep Dive
+-> This is our appspec.yml
+```yaml
+version: 0.0
+os: linux
+files:
+  - source: /index.html
+    destination: /var/www/html/
+hooks:
+  ApplicationStop:
+    - location: scripts/stop_server.sh
+      timeout: 300
+      runas: root
+
+  AfterInstall:
+    - location: scripts/after_install.sh
+      timeout: 300
+      runas: root
+
+  BeforeInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
+
+  ApplicationStart:
+    - location: scripts/start_server.sh
+      timeout: 300
+      runas: root
+
+  ValidateService:
+    - location: scripts/validate_service.sh
+      timeout: 300
+```
+- This corresponds to here
+![image](https://user-images.githubusercontent.com/43883264/169907513-8d0ae2ab-901d-464f-a18f-77a174ef5635.png)
+
+#### CodeDeploy - Hooks And Environment Variables
+-> Here are different types of hooks you can use in different scenarios
+https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html
+-> More details follow in the doc
