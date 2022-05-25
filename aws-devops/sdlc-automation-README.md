@@ -306,3 +306,14 @@ Look at this section  **List of lifecycle event hooks**
 ## Register Code Deploy on an on-premise instance
 https://www.udemy.com/course/aws-certified-devops-engineer-professional-hands-on/learn/lecture/16050384#content
 
+
+## CodeDeploy with AWS Lambda
+![image](https://user-images.githubusercontent.com/43883264/170341250-7d21ac6c-4fb7-4e36-872d-f851574d8e3a.png)
+- You would then create a new deployment group and of course a new service role for Lambda as below
+![image](https://user-images.githubusercontent.com/43883264/170342199-b412fd19-a4e1-4939-a634-31baaada92de.png)
+- We can also set the following deployment config in the Deployment Groups to determine how an update is rolled out
+![image](https://user-images.githubusercontent.com/43883264/170342809-9421da7a-ed2d-4135-a507-967ff230b4b9.png)
+- Here is a detailed breakdown on the deployment config on AWS lambda
+![image](https://user-images.githubusercontent.com/43883264/170343328-ffa483cd-e763-4f39-bb4a-7e032ad1ae43.png)
+- Here are some sample hooks that could be configured in the appspec.yml file in an AWS Lambda deployment on CodeDeploy
+https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda
