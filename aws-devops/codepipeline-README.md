@@ -71,3 +71,9 @@ And that's it!!
 
 ## CodePipeline - All Integrations - Use Cases
 https://docs.aws.amazon.com/codepipeline/latest/userguide/best-practices.html
+
+## CodePipeline - Custom Action Jobs with AWS Lambda
+-> How Lambda functions can be used in pipelines
+![image](https://user-images.githubusercontent.com/43883264/170546523-474326bf-f3de-4dd0-91da-9255e7094938.png)
+https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-invoke-lambda-function.html
+
