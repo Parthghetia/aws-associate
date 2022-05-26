@@ -44,3 +44,26 @@
 
 And that's it!!
 ![image](https://user-images.githubusercontent.com/43883264/170361050-75041c74-0956-4352-9663-725948072d77.png)
+
+
+### CodePipeline - Artifacts, S3 and Encryption
+-> Let's say we want to store our artifacts in another location once a step is run for maybe future use or something of the sort. We can add a parallel action here to do so. Let's do this:
+![image](https://user-images.githubusercontent.com/43883264/170391234-86f03d6b-ab78-4e8a-9380-7a5782a3b340.png)
+![image](https://user-images.githubusercontent.com/43883264/170391387-84517bcc-6f8d-496d-b64d-7fb231c574fb.png)
+
+-> Remember, there are different artifacts for different services. What i mean is, Codebuild will have its own artifacts and CodePipeline will have its own artifacts
+
+### CodePipeline - Manual Approval Steps
+-> So let's add a new stage to our pipeline to deploy to prod instances
+![image](https://user-images.githubusercontent.com/43883264/170392049-14f70c30-328c-4d12-949c-63daf0da9717.png)
+-> But we want someone to check whether the deployment went well in dev first and then manually approve for it to be deployed to prod
+-> For this you need to create an action group
+![image](https://user-images.githubusercontent.com/43883264/170392233-8996af80-65e4-4edb-8507-d097c881d3c4.png)
+-> What's really helpful below is the URL. You could provide your prod app url to check if its working or not in there
+![image](https://user-images.githubusercontent.com/43883264/170392358-4ed9f099-b627-4345-adc0-85a2719e2afb.png)
+
+-> Notice how the steps are sequential and not parallel here
+![image](https://user-images.githubusercontent.com/43883264/170392414-68bae577-4d0a-4060-971b-ad9757c74f62.png)
+
+
+
