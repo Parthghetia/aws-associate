@@ -66,4 +66,8 @@ And that's it!!
 ![image](https://user-images.githubusercontent.com/43883264/170392414-68bae577-4d0a-4060-971b-ad9757c74f62.png)
 
 
+### NOTE: EventBridge with CodePipeline
+-> We can easily setup EventBridge to invoke let's say a lambda function to send something to a slack channel like when a pipeline fails
 
+## CodePipeline - All Integrations - Use Cases
+https://docs.aws.amazon.com/codepipeline/latest/userguide/best-practices.html
