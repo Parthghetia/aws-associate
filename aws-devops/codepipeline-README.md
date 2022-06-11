@@ -79,6 +79,5 @@ https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-invoke-lambda-
 
 To Be Continued
 
-# CodeStar
 
 
