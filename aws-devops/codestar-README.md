@@ -5,4 +5,6 @@ AWS CodeStar is a cloud‑based development service that provides the tools you 
 
 - Creating a new project with CodeStar
 ![image](https://user-images.githubusercontent.com/43883264/173204351-4cc0a49f-272f-4ad3-8552-2e822dcdfd1d.png)
-
+- Make sure to hit create service role
+- You then choose the type of template you need, it could be for EC2, Elastic BeanStalk etc
+![image](https://user-images.githubusercontent.com/43883264/173204532-454c6b37-9167-4379-a7cd-4aba1edc27dc.png)
