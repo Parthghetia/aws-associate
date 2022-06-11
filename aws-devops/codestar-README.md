@@ -8,3 +8,7 @@ AWS CodeStar is a cloud‑based development service that provides the tools you 
 - Make sure to hit create service role
 - You then choose the type of template you need, it could be for EC2, Elastic BeanStalk etc
 ![image](https://user-images.githubusercontent.com/43883264/173204532-454c6b37-9167-4379-a7cd-4aba1edc27dc.png)
+
+- You then setup your project
+![image](https://user-images.githubusercontent.com/43883264/173204557-97cd5473-a6ee-4755-86f4-5c1c8f623e40.png)
+
