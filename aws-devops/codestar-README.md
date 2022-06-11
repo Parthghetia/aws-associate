@@ -11,4 +11,10 @@ AWS CodeStar is a cloud‑based development service that provides the tools you 
 
 - You then setup your project
 ![image](https://user-images.githubusercontent.com/43883264/173204557-97cd5473-a6ee-4755-86f4-5c1c8f623e40.png)
+- Here is our final product
+![image](https://user-images.githubusercontent.com/43883264/173204927-c9e789b8-2142-48a9-a2a6-729e7d254cd4.png)
 
+- Let's take a look at our repo, here you see a tonne of stuff already created for you in codecommit
+![image](https://user-images.githubusercontent.com/43883264/173204974-934169b4-3a11-472e-be4f-caca8e7a45ae.png)
+- Same stuff we used to build our app sometime back. Amazing right?
+- Not only that, CodePipeline, CodeDeploy etc has been made for you
