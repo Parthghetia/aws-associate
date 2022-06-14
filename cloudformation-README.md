@@ -143,6 +143,45 @@ Resources:
 
 
 ## CloudFormation Outputs
+![image](https://user-images.githubusercontent.com/43883264/173474275-38fd2dca-53fa-47ee-9f68-7a86e74ba46d.png)
+- Outputs Example
+![image](https://user-images.githubusercontent.com/43883264/173474330-4f3e010f-b71d-48a8-98e4-0deae8051f33.png)
+- How to import outputs - Cross Stack Reference
+![image](https://user-images.githubusercontent.com/43883264/173474488-3ba924df-990c-4d31-a6ad-ea9561d18886.png)
+
+## CloudFormation Conditions
+- How to define a condition
+![image](https://user-images.githubusercontent.com/43883264/173474749-7eee6630-62ec-4073-bfb5-36f6677efa60.png)
+- Conditions can be applied to resources/outputs etc
+![image](https://user-images.githubusercontent.com/43883264/173474861-9df3c246-9431-4f79-ae7e-ee51e5710b8e.png)
+
+## CloudFormation Intrinsic Functions
+- Some of the popular intrinsic functions
+![image](https://user-images.githubusercontent.com/43883264/173475126-d96d762f-2335-454b-a582-2ff2f6fbe87e.png)
+
+##### Fn::Ref
+![image](https://user-images.githubusercontent.com/43883264/173475243-91f80f58-66b6-4747-b192-0c0e3976870f.png)
+
+##### Fn::GetAtt
+![image](https://user-images.githubusercontent.com/43883264/173475399-78bf090b-dbc2-45f9-b9cd-e361e80fba41.png)
+
+##### Fn::FindInMap
+![image](https://user-images.githubusercontent.com/43883264/173475528-51313929-5971-4109-a895-045b77e79809.png)
+
+##### Fn::ImportValue
+![image](https://user-images.githubusercontent.com/43883264/173475587-e960b3ee-d476-4127-8c1f-97bee9b3832c.png)
+
+##### Fn::Join
+![image](https://user-images.githubusercontent.com/43883264/173475663-dfb347d0-4fca-4e0b-8002-5ad4dc053998.png)
+
+##### Fn::Sub
+![image](https://user-images.githubusercontent.com/43883264/173475748-7dbd1712-47ab-419e-b64e-1416d7504117.png)
+
+##### Condition Functions
+And, Equals, If, Not, Or - Defined above
+
+## CloudFormation User Data
+
 
 
 
