@@ -181,10 +181,153 @@ Resources:
 And, Equals, If, Not, Or - Defined above
 
 ## CloudFormation User Data
+![image](https://user-images.githubusercontent.com/43883264/174498669-9cb4ab16-b5c8-4454-90be-aabdc7e97d69.png)
 
+### CloudFormation User Data - Hands On
+Here is the template we are going to use for CloudFormation - Notice the user-data bit
+```yaml
+---
+Parameters:
+  SSHKey:
+    Type: AWS::EC2::KeyPair::KeyName
+    Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
 
+Resources:
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      AvailabilityZone: us-east-1a
+      ImageId: ami-009d6802948d06e52
+      InstanceType: t2.micro
+      KeyName: !Ref SSHKey
+      SecurityGroups:
+        - !Ref SSHSecurityGroup
+      # we install our web server with user data
+      UserData: 
+        Fn::Base64: |
+          #!/bin/bash -xe
+          yum update -y
+          yum install -y httpd
+          systemctl start httpd
+          systemctl enable httpd
+          echo "Hello World from user data" > /var/www/html/index.html
 
+  # our EC2 security group
+  SSHSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: SSH and HTTP
+      SecurityGroupIngress:
+      - CidrIp: 0.0.0.0/0
+        FromPort: 22
+        IpProtocol: tcp
+        ToPort: 22
+      - CidrIp: 0.0.0.0/0
+        FromPort: 80
+        IpProtocol: tcp
+        ToPort: 80
+```
+- So when you create the stack, you can see the parameter asking for the key pair as below:
 
+![image](https://user-images.githubusercontent.com/43883264/174498853-fba912ef-5c05-4bde-bf8b-c3488909fe85.png)
+
+- So now your HTTP server will be automatically running for you. Now if you ssh to your instance and go to:
+```
+cat /var/log/cloud-init-output.log
+```
+- You will see all the logs that were run when the user-data script is run. Cool right?
+- An issue here is: Even though the user-data script does not run properly, you will notice that the stack-create-complete will finish just fine. This is not ideal. So here is the solution for that:
+
+## CloudFormation - cfn-init
+- This is a more better solution compared to the user-data we had before. Let's see how
+![image](https://user-images.githubusercontent.com/43883264/174499054-17f74916-4350-40dd-bf9a-35f1456a944f.png)
+
+### CloudFormation - cfn-init - Hands On
+- Here is the template we are going to use for the cfn-init to run:
+- Now notice below, we are still using the user-data way of doing stuff, but; notice the sub function and also the fact that we first install cfn bootstrap and later start cfn-init
+- Check the metadata way of doing stuff now too. We are basically declaring what we need inside the /var/www/html file and enabling httpd
+```yaml
+---
+Parameters:
+  SSHKey:
+    Type: AWS::EC2::KeyPair::KeyName
+    Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
+
+Resources:
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      AvailabilityZone: us-east-1a
+      ImageId: ami-009d6802948d06e52
+      InstanceType: t2.micro
+      KeyName: !Ref SSHKey
+      SecurityGroups:
+        - !Ref SSHSecurityGroup
+      # we install our web server with user data
+      UserData: 
+        Fn::Base64:
+          !Sub |
+            #!/bin/bash -xe
+            # Get the latest CloudFormation package
+            yum update -y aws-cfn-bootstrap
+            # Start cfn-init
+            /opt/aws/bin/cfn-init -s ${AWS::StackId} -r MyInstance --region ${AWS::Region} || error_exit 'Failed to run cfn-init'
+    Metadata:
+      Comment: Install a simple Apache HTTP page
+      AWS::CloudFormation::Init:
+        config:
+          packages:
+            yum:
+              httpd: []
+          files:
+            "/var/www/html/index.html":
+              content: |
+                <h1>Hello World from EC2 instance!</h1>
+                <p>This was created using cfn-init</p>
+              mode: '000644'
+          commands:
+            hello:
+              command: "echo 'hello world'"
+          services:
+            sysvinit:
+              httpd:
+                enabled: 'true'
+                ensureRunning: 'true'
+
+  # our EC2 security group
+  SSHSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: SSH and HTTP
+      SecurityGroupIngress:
+      - CidrIp: 0.0.0.0/0
+        FromPort: 22
+        IpProtocol: tcp
+        ToPort: 22
+      - CidrIp: 0.0.0.0/0
+        FromPort: 80
+        IpProtocol: tcp
+        ToPort: 80
+ ```
+ - Now let's look at what happened:
+ ```bash
+ [root@ip-172-31-85-27 ec2-user]# cat /var/log/cfn-init.log
+2022-06-19 20:32:50,841 [INFO] -----------------------Starting build-----------------------
+2022-06-19 20:32:50,842 [INFO] Running configSets: default
+2022-06-19 20:32:50,843 [INFO] Running configSet default
+2022-06-19 20:32:50,844 [INFO] Running config config
+2022-06-19 20:33:06,387 [INFO] Yum installed ['httpd']
+2022-06-19 20:33:06,395 [INFO] Command hello succeeded
+2022-06-19 20:33:06,539 [INFO] enabled service httpd
+2022-06-19 20:33:06,733 [INFO] Started httpd successfully
+2022-06-19 20:33:06,734 [INFO] ConfigSets completed
+2022-06-19 20:33:06,734 [INFO] -----------------------Build complete-----------------------
+```
+- A much better organized output of what cfn-init did here. Compared to when passing user-data scripts
+- However, even here the stack create complete succeeds before the script is run. So the solution to that is:....
+
+## CloudFormation cfn-signal & wait conditions
+![image](https://user-images.githubusercontent.com/43883264/174499466-8a460689-3301-4364-bd6c-815df0cf3b1f.png)
 
   
 
